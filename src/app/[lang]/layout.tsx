@@ -5,8 +5,8 @@ interface LayoutProps {
   params: { lang: string };
 }
 
-const LangLayout: React.FC<LayoutProps> = ({ children, params }) => {
-  const lang = params.lang === "fa" ? "fa" : "en";
+const LangLayout: React.FC<LayoutProps> = async ({ children, params }) => {
+  const { lang } = await params;
   const dir = lang === "fa" ? "rtl" : "ltr";
 
   return (

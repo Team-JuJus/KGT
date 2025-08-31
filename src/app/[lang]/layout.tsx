@@ -1,3 +1,5 @@
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 import "@/styles/globals.css";
 
 interface LayoutProps {
@@ -7,11 +9,15 @@ interface LayoutProps {
 
 const LangLayout: React.FC<LayoutProps> = async ({ children, params }) => {
   const { lang } = await params;
-  const dir = lang === "fa" ? "rtl" : "ltr";
+  const dir = lang == "fa" ? "rtl" : "ltr";
 
   return (
     <html lang={lang} dir={dir}>
-      <body>{children}</body>
+      <body>
+        <Navbar lang={lang} />
+        {children}
+        <Footer lang={lang} />
+      </body>
     </html>
   );
 };

@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 20px;
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+  text-decoration: none;
+  width: 100%;
+  a {
+    text-decoration: none;
+    color: var(--primary);
+  }
+}
+
+.tools {
+  justify-self: flex-end;
+  display: flex;
+}

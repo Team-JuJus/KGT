@@ -2,6 +2,7 @@ import CategoryCard from "@/components/categories/CategoryCard";
 import React from "react";
 
 import styles from "./Home.module.css";
+import ProductCard from "@/components/products/ProductCard";
 
 interface HomeProps {
   params: { lang: string };
@@ -25,6 +26,22 @@ const Home: React.FC<HomeProps> = async ({ params }) => {
         <div className={styles.categories}>
           {MOCK_DATA.map((item, index) => (
             <CategoryCard
+              title={lang == "en" ? item.title_en : item.title_fa}
+              link="link"
+              image="next.svg"
+              alt="Test text"
+              rtl={rtl}
+              key={index}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2>{lang == "en" ? "Featured products" : "محصولات"}</h2>
+        <div className={styles.categories}>
+          {MOCK_DATA.map((item, index) => (
+            <ProductCard
               title={lang == "en" ? item.title_en : item.title_fa}
               link="link"
               image="next.svg"

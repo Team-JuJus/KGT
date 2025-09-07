@@ -6,9 +6,10 @@ import styles from "./ProductCard.module.css";
 interface ProductCardProps {
   title: string;
   link: string;
+  desc: string;
   image: string;
   alt: string;
-  rtl?: boolean;
+  lang: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -16,20 +17,26 @@ const ProductCard: React.FC<ProductCardProps> = ({
   link,
   image,
   alt,
-  rtl,
+  desc,
+  lang,
 }) => {
   return (
     <article className={styles.card}>
-      <h3>{title}</h3>
-
-      <Image className={styles.image} src={image} fill alt={alt} />
-
-      <Link
-        href={link}
-        className={`${rtl ? styles.buttonRTL : styles.buttonLTR}`}
-      >
-        X
-      </Link>
+      <Image
+        src={image}
+        width={800}
+        height={800}
+        alt={alt}
+        className={styles.image}
+      />
+      <div className={styles.details}>
+        <h3>{title}</h3>
+        <hr />
+        <p className="caption">{desc}</p>
+        <Link href={link} className={styles.button}>
+          {lang === "en" ? "More" : "بیشتر"}
+        </Link>
+      </div>
     </article>
   );
 };

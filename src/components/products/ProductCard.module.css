@@ -1,42 +1,37 @@
 .card {
   position: relative;
   width: 300px;
-  height: 200px;
-  padding: 15px;
-  background-color: rgb(220, 222, 245);
-  border-radius: 20px;
+  height: fit-content;
+  background: linear-gradient(180deg, var(--neutral-300), transparent);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+}
+
+.details {
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
 .image {
-  width: 100%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 0;
 }
 
-.buttonLTR {
-  position: absolute;
-  left: 15px;
-  bottom: 15px;
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  width: 80px;
-  height: 40px;
-  background-color: var(--primary);
-  color: white;
-  border-radius: 10px;
-}
-
-.buttonRTL {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  width: 80px;
-  height: 40px;
-  background-color: var(--primary);
-  color: white;
-  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+  font-size: small;
+  font-weight: 700;
+  background-color: var(--neutral-200);
+  color: black;
+  border-radius: var(--radius-lg);
+  align-self: flex-end;
 }

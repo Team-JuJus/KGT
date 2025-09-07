@@ -101,30 +101,25 @@ section {
 /* Typography */
 h1 {
   font-size: var(--font-size-2xl);
-  line-height: var(--line-height-2xl);
   font-weight: 700;
 }
 
 h2 {
   font-size: var(--font-size-xl);
-  line-height: var(--line-height-xl);
   font-weight: 600;
 }
 
 h3 {
   font-size: var(--font-size-lg);
-  line-height: var(--line-height-lg);
   font-weight: 500;
 }
 
 p {
   font-size: var(--font-size-md);
-  line-height: var(--line-height-md);
 }
 
 .caption {
   font-size: var(--font-size-xs);
-  line-height: var(--line-height-xs);
 }
 
 /* Utilities: Radius */

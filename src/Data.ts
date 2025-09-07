@@ -1,31 +1,43 @@
 export const MOCK_CATEGORIES = [
   {
-    title_en: "A",
-    title_fa: "الف",
+    title_en: "Product name",
+    title_fa: "نام محصول",
     link: "",
     alt: "",
     image: "next.svg",
+    summary_en:
+      "This is a short description of the product user sees and interacts with",
+    summary_fa: "این یک توضیح کوتاه درباره محصول برای کاربر میباشد",
   },
   {
-    title_en: "B",
-    title_fa: "ب",
+    title_en: "Product name",
+    title_fa: "نام محصول",
     link: "",
     alt: "",
     image: "next.svg",
+    summary_en:
+      "This is a short description of the product user sees and interacts with",
+    summary_fa: "این یک توضیح کوتاه درباره محصول برای کاربر میباشد",
   },
   {
-    title_en: "C",
-    title_fa: "ج",
+    title_en: "Product name",
+    title_fa: "نام محصول",
     link: "",
     alt: "",
     image: "next.svg",
+    summary_en:
+      "This is a short description of the product user sees and interacts with",
+    summary_fa: "این یک توضیح کوتاه درباره محصول برای کاربر میباشد",
   },
   {
-    title_en: "D",
-    title_fa: "د",
+    title_en: "Product name",
+    title_fa: "نام محصول",
     link: "",
     alt: "",
     image: "next.svg",
+    summary_en:
+      "This is a short description of the product user sees and interacts with",
+    summary_fa: "این یک توضیح کوتاه درباره محصول برای کاربر میباشد",
   },
 ];
 

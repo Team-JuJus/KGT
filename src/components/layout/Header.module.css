@@ -2,7 +2,11 @@
   display: flex;
   align-items: center;
   gap: 50px;
-  padding: 20px;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+}
+
+.logo {
+  width: 150px;
 }
 
 .nav {

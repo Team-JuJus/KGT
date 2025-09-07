@@ -15,24 +15,7 @@ const Home: React.FC<HomeProps> = async ({ params }) => {
   const rtl = lang == "fa";
   return (
     <main>
-      {/* <section>
-        <h2>{lang == "en" ? "Categories" : "دسته بندی ها"}</h2>
-        <div className={styles.categories}>
-          {data.map((item, index) => (
-            <CategoryCard
-              title={lang == "en" ? item.title_en : item.title_fa}
-              link="link"
-              image="/lab-image-2.png"
-              alt="Test text"
-              rtl={rtl}
-              key={index}
-            />
-          ))}
-        </div>
-      </section> */}
-
       <section>
-        <h2>{lang == "en" ? "Featured products" : "محصولات"}</h2>
         <div className={styles.categories}>
           {data.map((item, index) => (
             <ProductCard

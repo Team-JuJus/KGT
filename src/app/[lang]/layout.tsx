@@ -1,3 +1,7 @@
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto();
+
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import "@/styles/globals.css";
@@ -13,7 +17,7 @@ const LangLayout: React.FC<LayoutProps> = async ({ children, params }) => {
 
   return (
     <html lang={lang} dir={dir}>
-      <body>
+      <body className={lang === "en" ? roboto.className : ""}>
         <Navbar lang={lang} />
         {children}
         <Footer lang={lang} />

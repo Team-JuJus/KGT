@@ -13,7 +13,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = async ({ lang }) => {
   return (
     <header className={styles.header}>
-      <Image src={"next.svg"} width={300} height={100} alt="logo" />
+      <img src={"logo.svg"} alt="logo" className={styles.logo} />
       <nav className={styles.nav}>
         {data.map((item) => (
           <Link key={item.name_en} href={"#" + item.link}>

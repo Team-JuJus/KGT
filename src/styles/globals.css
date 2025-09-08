@@ -72,13 +72,18 @@
 
 /* Layout Defaults */
 
-section,
+section > *,
 header,
-footer div {
+footer > * {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
   padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
 }
 
 /* Typography */

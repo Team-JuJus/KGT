@@ -3,15 +3,15 @@
   width: 300px;
   height: fit-content;
   background: linear-gradient(180deg, var(--neutral-300), transparent);
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  border-radius: 10px 10px 0 0;
   overflow: hidden;
 }
 
 .details {
-  padding: var(--spacing-sm);
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: 10px;
 }
 
 .image {
@@ -21,6 +21,10 @@
   object-position: 0;
 }
 
+.caption {
+  font-size: var(--font-size-xs);
+}
+
 .button {
   display: flex;
   align-items: center;
@@ -28,10 +32,10 @@
   text-decoration: none;
   width: 60px;
   height: 30px;
-  font-size: small;
+  font-size: var(--font-size-xs);
   font-weight: 700;
   background-color: var(--neutral-200);
-  color: black;
-  border-radius: var(--radius-lg);
+  color: var(--neutral-900);
+  border-radius: 15px;
   align-self: flex-end;
 }

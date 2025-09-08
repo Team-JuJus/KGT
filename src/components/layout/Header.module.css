@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   gap: 50px;
-  padding: var(--spacing-lg) var(--spacing-2xl);
 }
 
 .logo {
@@ -14,13 +13,32 @@
   gap: 15px;
   text-decoration: none;
   width: 100%;
+
   a {
+    font-size: var(--font-size-sm);
     text-decoration: none;
-    color: var(--primary);
+    color: var(--neutral-700);
   }
 }
 
 .tools {
   justify-self: flex-end;
   display: flex;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid var(--neutral-400);
+  border-radius: 20px;
+
+  input {
+    outline: none;
+    border: none;
+
+    ::placeholder {
+      font-size: 5px;
+    }
+  }
 }

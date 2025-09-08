@@ -29,10 +29,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
         alt={alt}
         className={styles.image}
       />
+
       <div className={styles.details}>
         <h3>{title}</h3>
+
         <hr />
-        <p className="caption">{desc}</p>
+
+        <p className={styles.caption}>{desc}</p>
+
         <Link href={link} className={styles.button}>
           {lang === "en" ? "More" : "بیشتر"}
         </Link>

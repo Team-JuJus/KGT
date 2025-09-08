@@ -3,7 +3,7 @@ import { Roboto } from "next/font/google";
 const roboto = Roboto();
 
 import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
+import Header from "@/components/layout/Header";
 import "@/styles/globals.css";
 
 interface LayoutProps {
@@ -18,7 +18,7 @@ const LangLayout: React.FC<LayoutProps> = async ({ children, params }) => {
   return (
     <html lang={lang} dir={dir}>
       <body className={lang === "en" ? roboto.className : ""}>
-        <Navbar lang={lang} />
+        <Header lang={lang} />
         {children}
         <Footer lang={lang} />
       </body>

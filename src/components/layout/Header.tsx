@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { FiSearch } from "react-icons/fi";
 
 import styles from "./Header.module.css";
 
@@ -14,6 +13,7 @@ const Navbar: React.FC<NavbarProps> = async ({ lang }) => {
   return (
     <header className={styles.header}>
       <img src={"logo.svg"} alt="logo" className={styles.logo} />
+
       <nav className={styles.nav}>
         {data.map((item) => (
           <Link key={item.name_en} href={"#" + item.link}>
@@ -23,7 +23,10 @@ const Navbar: React.FC<NavbarProps> = async ({ lang }) => {
       </nav>
 
       <div className={styles.tools}>
-        <input type="text" name="search" />
+        <div className={styles.searchbar}>
+          <input type="text" name="search" placeholder="Search..." />
+          <FiSearch />
+        </div>
       </div>
     </header>
   );

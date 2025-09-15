@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./CategoryCard.module.css";
@@ -6,37 +5,17 @@ import styles from "./CategoryCard.module.css";
 interface CategoryCardProps {
   title: string;
   link: string;
-  image: string;
-  alt: string;
-  rtl?: boolean;
+  Icon: React.ElementType;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({
-  title,
-  link,
-  image,
-  alt,
-  rtl,
-}) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ title, link, Icon }) => {
   return (
-    <article className={styles.card}>
-      <h3>{title}</h3>
-
-      <Image
-        className={styles.image}
-        src={image}
-        width={300}
-        height={300}
-        alt={alt}
-      />
-
-      <Link
-        href={link}
-        className={`${rtl ? styles.buttonRTL : styles.buttonLTR}`}
-      >
-        X
-      </Link>
-    </article>
+    <Link href={link}>
+      <article className={styles.card}>
+        <Icon className={styles.image} />
+        <h3>{title}</h3>
+      </article>
+    </Link>
   );
 };
 

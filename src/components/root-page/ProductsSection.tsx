@@ -1,6 +1,6 @@
 import { RiShareForwardLine } from "react-icons/ri";
 
-import { MOCK_CATEGORIES as data } from "@/Data"; //temporary
+import { MOCK_PRODUCTS as data } from "@/Data"; //temporary
 import ProductCard from "@/components/products/ProductCard";
 
 import styles from "./ProductSection.module.css";

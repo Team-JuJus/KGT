@@ -1,42 +1,20 @@
 .card {
   position: relative;
   width: 300px;
-  height: 300px;
+  height: 110px;
   padding: 15px;
-  background-color: rgb(220, 222, 245);
+  background-color: var(--primary-light);
   border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--secondary-light);
+
+  h3 {
+    font-size: var(--font-size-lg);
+  }
 }
 
 .image {
-  width: 100%;
-}
-
-.buttonLTR {
-  position: absolute;
-  left: 15px;
-  bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  width: 80px;
-  height: 40px;
-  background-color: rgb(3, 3, 110);
-  color: white;
-  border-radius: 10px;
-}
-
-.buttonRTL {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  width: 80px;
-  height: 40px;
-  background-color: rgb(3, 3, 110);
-  color: white;
-  border-radius: 10px;
+  font-size: 70px;
 }

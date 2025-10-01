@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "./Footer.module.css";
 
 interface FooterProps {
@@ -9,7 +7,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ lang }) => {
   return (
     <footer className={styles.footer}>
-      <div>Footer</div>
+      <div>{lang}</div>
     </footer>
   );
 };

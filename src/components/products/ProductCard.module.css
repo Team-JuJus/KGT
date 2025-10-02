@@ -1,0 +1,41 @@
+.card {
+  position: relative;
+  width: 300px;
+  height: fit-content;
+  background: linear-gradient(180deg, var(--neutral-300), white);
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+.details {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 0;
+}
+
+.caption {
+  font-size: var(--font-size-xs);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 60px;
+  height: 30px;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  background-color: var(--neutral-200);
+  color: var(--neutral-900);
+  border-radius: 15px;
+  align-self: flex-end;
+}

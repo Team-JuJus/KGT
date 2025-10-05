@@ -1,0 +1,5 @@
+// The auto complete for css variables
+// make sure you have CSS Variable Autocomplete extension installed
+{
+  "cssVariables.lookupFiles": ["src/styles/globals/**/*.css"]
+}

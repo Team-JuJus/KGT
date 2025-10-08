@@ -10,7 +10,13 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
   return (
     <footer className={styles.footer}>
       <div className={styles.section}>
-        <Image className={styles.logo} src="/logo.svg" alt="logo" />
+        <Image
+          className={styles.logo}
+          width={100}
+          height={100}
+          src="/logo.svg"
+          alt="logo"
+        />
       </div>
 
       <div className={styles.section}>

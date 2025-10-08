@@ -8,11 +8,13 @@ interface CategorySectionProps {
 }
 
 const CategorySection: React.FC<CategorySectionProps> = ({ lang }) => {
+  const isEnglish = lang === "en";
+
   return (
     <section className={styles.container}>
       <div className={styles.header}>
         <div className={styles.header_caption}>
-          <h2>Categories</h2>
+          <h2>{isEnglish ? "Categories" : "دسته بندی ها"}</h2>
         </div>
         <hr />
       </div>

@@ -113,6 +113,72 @@ export const MOCK_PRODUCTS = [
   },
 ];
 
+export const MAIN_SECTION = {
+  banner: "/labor.png",
+  title_en: "Trusted Medical & Laboratory",
+  title_fa: "تجهیزات پزشکی و آزمایشگاهی معتبر",
+  about_en:
+    "A wide range of consumables and specialized lab equipment with authenticity guarantee and official licenses — ready to be delivered nationwide. A wide range of consumables and specialized lab equipment",
+  about_fa:
+    "انواع تجهیزات و لوازم مصرفی تخصصی آزمایشگاهی با ضمانت اصالت و مجوزهای رسمی — آماده ارسال به سراسر کشور.",
+  button_en: "Click",
+  button_fa: "کلیک کنید",
+
+  bonuses: [
+    {
+      title_en: "Authentic products",
+      title_fa: "محصولات اصل و معتبر",
+      image: "/shield.svg",
+      desc_en: "Guarenteed original items",
+      desc_fa: "تضمین اصالت کالا",
+    },
+    {
+      title_en: "Fast shipping",
+      title_fa: "ارسال سریع",
+      image: "/streamline.svg",
+      desc_en: "Quick process and delivery",
+      desc_fa: "فرآیند پردازش و ارسال سریع",
+    },
+    {
+      title_en: "Available support",
+      title_fa: "پشتیبانی در دسترس",
+      image: "/support.svg",
+      desc_en: "We're here to help, Anytime",
+      desc_fa: "در هر زمان در کنار شما هستیم",
+    },
+  ],
+};
+
+export const MOCK_ARTICLES = [
+  {
+    title_en: "Article title",
+    title_fa: "عنوان مقاله",
+    link: "",
+    alt: "",
+    image: "/equip.png",
+    summary_en: "A short summary about the content of the article...",
+    summary_fa: "خلاصه ای مختصر درباره محتوای مقاله...",
+  },
+  {
+    title_en: "Article title",
+    title_fa: "عنوان مقاله",
+    link: "",
+    alt: "",
+    image: "/equip.png",
+    summary_en: "A short summary about the content of the article...",
+    summary_fa: "خلاصه ای مختصر درباره محتوای مقاله...",
+  },
+  {
+    title_en: "Article title",
+    title_fa: "عنوان مقاله",
+    link: "",
+    alt: "",
+    image: "/equip.png",
+    summary_en: "A short summary about the content of the article...",
+    summary_fa: "خلاصه ای مختصر درباره محتوای مقاله...",
+  },
+];
+
 export const NAV_LINKS = [
   { name_fa: "خانه", name_en: "Home", link: "/" },
   { name_fa: "محصولات", name_en: "Products", link: "products" },

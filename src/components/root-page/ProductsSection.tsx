@@ -1,6 +1,6 @@
 import { RiShareForwardLine } from "react-icons/ri";
 
-import { MOCK_PRODUCTS as data } from "@/Data"; //temporary
+import { MOCK_PRODUCTS as data } from "@/Data";
 import ProductCard from "@/components/products/ProductCard";
 
 import styles from "./ProductSection.module.css";
@@ -11,13 +11,15 @@ interface ProductsSectionProps {
 }
 
 const ProductsSection: React.FC<ProductsSectionProps> = ({ lang }) => {
+  const isEnglish = lang === "en";
+
   return (
     <section className={styles.container}>
       <div className={styles.header}>
         <div className={styles.header_caption}>
-          <h2>Products</h2>
+          <h2>{isEnglish ? "Products" : "محصولات"}</h2>
           <Link href={`${lang}/products`}>
-            All products <RiShareForwardLine />
+            {isEnglish ? "All products" : "همه محصولات"} <RiShareForwardLine />
           </Link>
         </div>
         <hr />

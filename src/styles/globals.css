@@ -12,6 +12,10 @@
 }
 
 /* Layout Defaults */
+section {
+  margin-bottom: 50px;
+}
+
 section > *,
 header,
 footer > * {

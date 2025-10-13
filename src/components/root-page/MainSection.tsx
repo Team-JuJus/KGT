@@ -20,12 +20,35 @@ const MainSection: React.FC<MainSectionProps> = ({ lang }) => {
           <button>{buttonText}</button>
         </div>
 
+        <div className={styles.image_container}>
+          <Image
+            className={styles.image}
+            width={1200}
+            height={800}
+            src={data.banner}
+            alt="Banner"
+          />
+          <Image
+            className={styles.yellow_rec}
+            width={100}
+            height={100}
+            src="yellow-rec.svg"
+            alt=""
+          />
+        </div>
         <Image
-          className={styles.image}
-          width={1200}
-          height={800}
-          src={data.banner}
-          alt="Banner"
+          className={styles.zoza}
+          width={100}
+          height={100}
+          src="zoza.svg"
+          alt=""
+        />
+        <Image
+          className={styles.big_mole}
+          width={100}
+          height={100}
+          src="mole-big.svg"
+          alt=""
         />
       </div>
 

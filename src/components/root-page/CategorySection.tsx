@@ -25,6 +25,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ lang }) => {
             key={index}
             Icon={cat.Icon}
             link={cat.link}
+            color={cat.color}
           />
         ))}
       </div>

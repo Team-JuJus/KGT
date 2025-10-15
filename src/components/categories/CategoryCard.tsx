@@ -8,6 +8,7 @@ interface CategoryCardProps {
   link: string;
   Icon: React.ElementType;
   color: number;
+  isEnglish: boolean;
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({
@@ -15,6 +16,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
   link,
   Icon,
   color,
+  isEnglish,
 }) => {
   return (
     <Link href={link}>
@@ -27,7 +29,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       >
         <div className={styles.texts}>
           <h3>{title}</h3>
-          <p>see more</p>
+          <p>{isEnglish ? "See more" : "بیشتر"}</p>
         </div>
         <Icon className={styles.image} />
         <div className={styles.oval} />

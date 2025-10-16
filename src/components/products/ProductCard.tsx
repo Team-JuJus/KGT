@@ -9,7 +9,10 @@ interface ProductCardProps {
   desc: string;
   image: string;
   alt: string;
-  lang: string;
+  isEnglish: boolean;
+  country: string;
+  company: string;
+  category: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -18,10 +21,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
   image,
   alt,
   desc,
-  lang,
+  isEnglish,
+  category,
+  company,
 }) => {
   return (
     <article className={styles.card}>
+      <Image
+        className={styles.logo}
+        src="/zeiss.jpg"
+        alt={company}
+        width={100}
+        height={100}
+      />
+
       <Image
         src={image}
         width={800}
@@ -29,16 +42,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
         alt={alt}
         className={styles.image}
       />
+      <p className={styles.category}>{category}</p>
+      <hr />
 
       <div className={styles.details}>
-        <h3>{title}</h3>
-
-        <hr />
+        <h3 className={styles.title}>{title}</h3>
 
         <p className={styles.caption}>{desc}</p>
 
         <Link href={link} className={styles.button}>
-          {lang === "en" ? "More" : "بیشتر"}
+          {isEnglish ? "View details" : "جزئیات بیشتر"}
         </Link>
       </div>
     </article>

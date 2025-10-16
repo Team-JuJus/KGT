@@ -28,12 +28,15 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({ lang }) => {
         {data.map((item, index) => (
           <ProductCard
             title={lang == "en" ? item.title_en : item.title_fa}
-            link="link"
-            image="/lab-image-2.png"
-            alt="Test text"
+            link={item.link}
+            image={item.image}
+            alt={item.alt}
             desc={lang == "en" ? item.summary_en : item.summary_fa}
             key={index}
-            lang={lang}
+            isEnglish={isEnglish}
+            country={isEnglish ? item.country_en : item.country_fa}
+            company={item.company}
+            category={isEnglish ? item.category_en : item.category_fa}
           />
         ))}
       </div>

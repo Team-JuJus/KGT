@@ -9,6 +9,8 @@ interface ArticleCardProps {
   alt: string;
   summary: string;
   isEnglish: boolean;
+  time: string;
+  author: string;
 }
 const ArticleCard: React.FC<ArticleCardProps> = ({
   title,
@@ -17,6 +19,8 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   alt,
   summary,
   isEnglish,
+  time,
+  author,
 }) => {
   return (
     <article className={styles.card}>
@@ -29,12 +33,13 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
       />
 
       <div className={styles.details}>
-        <h3>{title}</h3>
-
+        <div className={styles.publishDetes}>
+          <p>{author}</p>
+          <p>{time}</p>
+        </div>
         <hr />
-
+        <h3 className={styles.title}>{title}</h3>
         <p className={styles.caption}>{summary}</p>
-
         <Link href={link} className={styles.button}>
           {isEnglish ? "More" : "بیشتر"}
         </Link>

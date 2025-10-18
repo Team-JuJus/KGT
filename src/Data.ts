@@ -144,6 +144,9 @@ export const MOCK_ARTICLES = [
     image: "/equip.png",
     summary_en: "A short summary about the content of the article...",
     summary_fa: "خلاصه ای مختصر درباره محتوای مقاله...",
+    author_en: "Soheyl Ashena",
+    author_fa: "سهیل آشنا",
+    time: new Date().toDateString(),
   },
   {
     title_en: "Article title",
@@ -153,6 +156,9 @@ export const MOCK_ARTICLES = [
     image: "/equip.png",
     summary_en: "A short summary about the content of the article...",
     summary_fa: "خلاصه ای مختصر درباره محتوای مقاله...",
+    author_en: "Soheyl Ashena",
+    author_fa: "سهیل آشنا",
+    time: new Date().toDateString(),
   },
   {
     title_en: "Article title",
@@ -162,6 +168,9 @@ export const MOCK_ARTICLES = [
     image: "/equip.png",
     summary_en: "A short summary about the content of the article...",
     summary_fa: "خلاصه ای مختصر درباره محتوای مقاله...",
+    author_en: "Soheyl Ashena",
+    author_fa: "سهیل آشنا",
+    time: new Date().toDateString(),
   },
 ];
 

@@ -6,13 +6,6 @@
   overflow: hidden;
   padding: 15px;
   box-shadow: var(--shadow-md);
-
-  hr {
-    border: none;
-    height: 1px;
-    background-color: var(--neutral-300);
-    margin-bottom: 20;
-  }
 }
 
 .logo {
@@ -31,6 +24,7 @@
 }
 
 .details {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;

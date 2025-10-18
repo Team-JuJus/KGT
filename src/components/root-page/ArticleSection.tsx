@@ -24,13 +24,15 @@ const ArticleSection: React.FC<ArticleSectionProps> = ({ lang }) => {
       <div className={styles.articles}>
         {data.map((item, index) => (
           <ArticleCard
-            title={lang == "en" ? item.title_en : item.title_fa}
+            title={isEnglish ? item.title_en : item.title_fa}
             link={item.link}
             image={item.image}
             alt={item.alt}
-            summary={lang == "en" ? item.summary_en : item.summary_fa}
+            summary={isEnglish ? item.summary_en : item.summary_fa}
             key={index}
             isEnglish={isEnglish}
+            time={item.time}
+            author={isEnglish ? item.author_en : item.author_fa}
           />
         ))}
       </div>

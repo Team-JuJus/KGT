@@ -49,3 +49,9 @@ a {
   text-decoration: none;
   color: var(--primary);
 }
+
+hr {
+  border: none;
+  height: 0.5px;
+  background-color: var(--neutral-300);
+}

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaCalendarDays } from "react-icons/fa6";
+import { FaStamp } from "react-icons/fa";
 
 interface ArticleCardProps {
   title: string;
@@ -27,13 +29,23 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
 
       <div className="p-3">
         <div className="flex gap-5 text-xs">
-          <p className="">{author}</p>
-          <p>{time}</p>
+          <div className="flex items-center gap-1">
+            <FaStamp className="text-[15px] text-blue-900" />
+            <p className="">{author}</p>
+          </div>
+          <div className="flex items-center gap-1">
+            <FaCalendarDays className="text-[15px] text-blue-900" />
+            <p>{time}</p>
+          </div>
         </div>
         <hr className="my-2" />
-        <h3>{title}</h3>
-        <p>{summary}</p>
-        <Link href={link}>{isEnglish ? "More" : "بیشتر"}</Link>
+        <p className="mb-1 text-xl font-bold">{title}</p>
+        <p className="mb-2 text-sm text-gray-600">{summary}</p>
+        <Link href={link}>
+          <button className="w-24 rounded-md bg-blue-900 p-2 text-white">
+            {isEnglish ? "More" : "بیشتر"}
+          </button>
+        </Link>
       </div>
     </article>
   );

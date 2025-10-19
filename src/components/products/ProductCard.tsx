@@ -24,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   company,
 }) => {
   return (
-    <article className="relative w-72 overflow-hidden rounded-2xl bg-white p-3">
+    <article className="relative w-72 overflow-hidden rounded-2xl bg-white p-3 shadow-lg">
       <Image
         src="/zeiss.jpg"
         alt={company}
@@ -34,15 +34,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
       />
 
       <Image src={image} width={800} height={800} alt={alt} />
-      <p>{category}</p>
-      <hr />
-
+      <p className="text-xs text-gray-600">{category}</p>
+      <hr className="my-1" />
       <div>
-        <h3>{title}</h3>
+        <p className="mb-1 text-xl font-bold">{title}</p>
+        <p className="mb-4 text-sm text-gray-600">{desc}</p>
 
-        <p>{desc}</p>
-
-        <Link href={link}>{isEnglish ? "View details" : "جزئیات بیشتر"}</Link>
+        <Link href={link}>
+          <button className="rounded-md bg-blue-900 p-2 text-white">
+            {isEnglish ? "View details" : "جزئیات بیشتر"}
+          </button>
+        </Link>
       </div>
     </article>
   );

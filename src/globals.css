@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  @apply text-gray-800;
+}
+
 section {
   @apply mb-20;
 }

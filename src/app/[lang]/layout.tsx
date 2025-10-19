@@ -3,8 +3,9 @@ import localFont from "next/font/local";
 
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-import "@/styles/globals.css";
 import LayoutProps from "next";
+
+import "@/globals.css";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -33,8 +34,12 @@ export default async function LangLayout({
   const dir = lang === "fa" ? "rtl" : "ltr";
 
   return (
-    <html lang={lang} dir={dir}>
-      <body className={lang === "en" ? roboto.className : yekan.className}>
+    <html
+      lang={lang}
+      dir={dir}
+      className={lang == "en" ? roboto.className : yekan.className}
+    >
+      <body>
         <Header lang={lang} />
         {children}
         <Footer lang={lang} />

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./ArticleCard.module.css";
 import Link from "next/link";
 
 interface ArticleCardProps {
@@ -23,26 +22,18 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   author,
 }) => {
   return (
-    <article className={styles.card}>
-      <Image
-        src={image}
-        width={800}
-        height={800}
-        alt={alt}
-        className={styles.image}
-      />
+    <article className="w-80 overflow-hidden rounded-2xl shadow-lg">
+      <Image src={image} width={800} height={800} alt={alt} />
 
-      <div className={styles.details}>
-        <div className={styles.publishDetes}>
-          <p>{author}</p>
+      <div className="p-3">
+        <div className="flex gap-5 text-xs">
+          <p className="">{author}</p>
           <p>{time}</p>
         </div>
-        <hr />
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.caption}>{summary}</p>
-        <Link href={link} className={styles.button}>
-          {isEnglish ? "More" : "بیشتر"}
-        </Link>
+        <hr className="my-2" />
+        <h3>{title}</h3>
+        <p>{summary}</p>
+        <Link href={link}>{isEnglish ? "More" : "بیشتر"}</Link>
       </div>
     </article>
   );

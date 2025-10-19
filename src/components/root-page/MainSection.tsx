@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./MainSection.module.css";
 
 import { MAIN_SECTION as data } from "@/Data";
 interface MainSectionProps {
@@ -12,60 +11,64 @@ const MainSection: React.FC<MainSectionProps> = ({ lang }) => {
   const buttonText = isEnglish ? data.button_en : data.button_fa;
 
   return (
-    <section className={styles.container}>
-      <div className={styles.banner}>
-        <div className={styles.texts}>
-          <h1>{title}</h1>
-          <p>{about}</p>
-          <button>{buttonText}</button>
+    <section className="w-full">
+      <div className="relative mx-auto mb-15 flex max-w-7xl items-center justify-between">
+        <div className="max-w-3xl">
+          <p className="mb-7 text-3xl font-bold">{title}</p>
+          <p className="mb-7 text-gray-600">{about}</p>
+          <button className="w-34 rounded-xl bg-blue-800 p-2 text-white">
+            {buttonText}
+          </button>
         </div>
 
-        <div className={styles.image_container}>
+        <div className="relative w-md">
           <Image
-            className={styles.image}
             width={1200}
             height={800}
             src={data.banner}
             alt="Banner"
+            className="w-full"
           />
           <Image
-            className={styles.yellow_rec}
             width={100}
             height={100}
             src="yellow-rec.svg"
             alt=""
+            className="absolute top-0 right-0 -z-10 w-8/10 rounded-sm"
           />
         </div>
+
         <Image
-          className={styles.zoza}
           width={100}
           height={100}
           src="zoza.svg"
           alt=""
+          className="absolute top-0 right-0 -z-20 h-full w-auto"
         />
         <Image
-          className={styles.big_mole}
           width={100}
           height={100}
           src="mole-big.svg"
           alt=""
+          className="absolute top-0 left-0 -z-10 w-70"
         />
       </div>
 
-      <ul className={styles.bonus}>
+      <ul className="mx-auto flex w-full max-w-7xl justify-around rounded-4xl border-1 border-gray-200 p-2">
         {data.bonuses.map((bonus, index) => (
-          <li key={index}>
+          <li key={index} className="flex items-center gap-2">
             <Image
               width={100}
               height={100}
               src={bonus.image}
               alt="bonus-icon"
+              className="w-10"
             />
             <div>
-              <p className={styles.bonusTitle}>
+              <p className="text-md font-bold text-blue-900">
                 {isEnglish ? bonus.title_en : bonus.title_fa}
               </p>
-              <p className={styles.bonusDesc}>
+              <p className="text-xs text-blue-800/80">
                 {isEnglish ? bonus.desc_en : bonus.desc_fa}
               </p>
             </div>

@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+section {
+  @apply mb-20;
+}
+
+hr {
+  @apply border-gray-200;
+}

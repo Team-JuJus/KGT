@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import styles from "./CategoryCard.module.css";
 import { darkenColor, toHexColorString } from "@/utils/hex-color";
 
 interface CategoryCardProps {
@@ -21,18 +20,18 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
   return (
     <Link href={link}>
       <article
-        className={styles.card}
         style={{
           background: toHexColorString(color),
           color: toHexColorString(darkenColor(color, 0.5)),
         }}
+        className="relative flex h-32 w-md items-center overflow-hidden rounded-md border-4 border-white p-5 shadow-lg"
       >
-        <div className={styles.texts}>
-          <h3>{title}</h3>
+        <div>
+          <h3 className="text-xl font-bold">{title}</h3>
           <p>{isEnglish ? "See more" : "بیشتر"}</p>
         </div>
-        <Icon className={styles.image} />
-        <div className={styles.oval} />
+        <Icon className="absolute top-3 right-5 z-10 text-7xl" />
+        <div className="absolute -top-12 -right-5 h-40 w-32 rotate-45 rounded-[50%] bg-white" />
       </article>
     </Link>
   );

@@ -82,21 +82,6 @@ export const MOCK_PRODUCTS = [
     country_fa: "آلمان",
     country_en: "Germany",
   },
-  {
-    title_en: "Product name",
-    title_fa: "نام محصول",
-    link: "",
-    alt: "",
-    image: "/microscope.jpg",
-    summary_en:
-      "This is a short description of the product user sees and interacts with",
-    summary_fa: "این یک توضیح کوتاه درباره محصول برای کاربر میباشد",
-    category_en: "Device",
-    category_fa: "دستگاه",
-    company: "Zeis",
-    country_fa: "آلمان",
-    country_en: "Germany",
-  },
 ];
 
 export const MAIN_SECTION = {

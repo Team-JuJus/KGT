@@ -12,8 +12,8 @@ const MainSection: React.FC<MainSectionProps> = ({ lang }) => {
 
   return (
     <section className="w-full">
-      <div className="relative mx-auto mb-15 flex max-w-7xl items-center justify-between">
-        <div className="max-w-3xl">
+      <div className="relative mx-auto mb-15 flex max-w-7xl items-center justify-between max-md:flex-col max-md:gap-10">
+        <div className="max-w-3xl max-md:order-2">
           <p className="mb-7 text-3xl font-bold">{title}</p>
           <p className="mb-7 text-gray-600">{about}</p>
           <button className="w-34 rounded-xl bg-blue-800 p-2 text-white">
@@ -21,7 +21,7 @@ const MainSection: React.FC<MainSectionProps> = ({ lang }) => {
           </button>
         </div>
 
-        <div className="relative w-md">
+        <div className="relative w-md max-md:order-1 max-md:w-xs">
           <Image
             width={1200}
             height={800}
@@ -43,18 +43,18 @@ const MainSection: React.FC<MainSectionProps> = ({ lang }) => {
           height={100}
           src="zoza.svg"
           alt=""
-          className="absolute top-0 right-0 -z-20 h-full w-auto"
+          className="absolute top-0 right-0 -z-20 h-full w-auto max-md:hidden"
         />
         <Image
           width={100}
           height={100}
           src="mole-big.svg"
           alt=""
-          className="absolute top-0 left-0 -z-10 w-70"
+          className="absolute top-0 left-0 -z-10 w-70 max-md:hidden"
         />
       </div>
 
-      <ul className="mx-auto flex w-full max-w-7xl justify-around rounded-4xl border-1 border-gray-200 p-2">
+      <ul className="mx-auto flex w-full max-w-7xl justify-around gap-5 rounded-4xl p-2 max-md:flex-col md:border-1 md:border-gray-200">
         {data.bonuses.map((bonus, index) => (
           <li key={index} className="flex items-center gap-2">
             <Image

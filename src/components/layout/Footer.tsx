@@ -15,7 +15,9 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="flex flex-col gap-4">
-            <span className="text-xl font-semibold">Karagene Tashkhis</span>
+            <span className="text-xl font-semibold">
+              {lang === "fa" ? "کاراژن تشخیص" : "Karagene Tashkhis"}
+            </span>
             <p className="text-sm text-gray-100">{aboutText}</p>
           </div>
 

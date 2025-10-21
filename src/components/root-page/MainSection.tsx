@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { MAIN_SECTION as data } from "@/Data";
+import clsx from "clsx";
 interface MainSectionProps {
   lang: string;
 }
@@ -38,20 +39,20 @@ const MainSection: React.FC<MainSectionProps> = ({ lang }) => {
           />
         </div>
 
-        <Image
-          width={100}
-          height={100}
-          src="zoza.svg"
-          alt=""
-          className="absolute top-0 right-0 -z-20 h-full w-auto max-md:hidden"
-        />
-        <Image
-          width={100}
-          height={100}
-          src="mole-big.svg"
-          alt=""
-          className="absolute top-0 left-0 -z-10 w-70 max-md:hidden"
-        />
+        <div
+          className={clsx(
+            "absolute h-full w-full",
+            !isEnglish && "-scale-x-100",
+          )}
+        >
+          <Image
+            width={100}
+            height={100}
+            src="zoza.svg"
+            alt=""
+            className="absolute top-0 right-0 -z-20 h-full w-auto max-md:hidden"
+          />
+        </div>
       </div>
 
       <ul className="mx-auto flex w-full max-w-7xl justify-around gap-5 rounded-4xl p-2 max-md:flex-col md:border-1 md:border-gray-200">

@@ -1,3 +1,4 @@
+import { truncateText } from "@/utils/truncate";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -24,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   company,
 }) => {
   return (
-    <article className="relative w-80 overflow-hidden rounded-2xl bg-white p-3 shadow-lg">
+    <article className="relative w-72 overflow-hidden rounded-2xl bg-white p-3 shadow-lg">
       <Image
         src="/zeiss.jpg"
         alt={company}
@@ -37,12 +38,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
       <p className="text-xs text-gray-600">{category}</p>
       <hr className="my-1" />
       <div>
-        <p className="mb-1 text-xl font-bold">{title}</p>
-        <p className="mb-4 text-sm text-gray-600">{desc}</p>
+        <p className="mb-4 text-lg leading-5 font-bold">{title}</p>
+        <p className="mb-2 text-sm text-gray-600">{truncateText(desc, 50)}</p>
 
         <Link href={link}>
           <button className="rounded-md bg-blue-900 p-2 text-white">
-            {isEnglish ? "View details" : "جزئیات بیشتر"}
+            {isEnglish ? "Read more" : "جزئیات بیشتر"}
           </button>
         </Link>
       </div>

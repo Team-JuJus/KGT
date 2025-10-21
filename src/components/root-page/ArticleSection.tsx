@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { MOCK_ARTICLES as data } from "@/Data";
 import ArticleCard from "../articles/ArticleCard";
+import clsx from "clsx";
 
 interface ArticleSectionProps {
   lang: string;
@@ -20,7 +21,10 @@ const ArticleSection: React.FC<ArticleSectionProps> = ({ lang }) => {
             className="flex items-center text-blue-900"
             href={`${lang}/products`}
           >
-            {isEnglish ? "All articles" : "همه مقالات"} <RiShareForwardLine />
+            {isEnglish ? "All articles" : "همه مقالات"}{" "}
+            <RiShareForwardLine
+              className={clsx(!isEnglish && "-scale-x-100")}
+            />
           </Link>
         </div>
         <hr />

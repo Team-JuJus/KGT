@@ -1,0 +1,47 @@
+.swiper-button-next-custom,
+.swiper-button-prev-custom {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.swiper-button-prev-custom::after,
+.swiper-button-next-custom::after {
+  font-family: swiper-icons;
+  font-size: 18px;
+  color: #1e3a8a; /* Tailwind blue-900 */
+}
+
+.swiper-button-prev-custom::after {
+  content: "prev";
+}
+
+.swiper-button-next-custom::after {
+  content: "next";
+}
+
+.swiper-button-prev-custom {
+  left: -50px; /* Push outside the product area */
+}
+
+.swiper-button-next-custom {
+  right: -50px; /* Push outside the product area */
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    display: none; /* hide arrows on small screens */
+  }
+}

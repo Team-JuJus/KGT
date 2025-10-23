@@ -9,7 +9,6 @@ const MainSection: React.FC<MainSectionProps> = ({ lang }) => {
   const isEnglish = lang === "en";
   const title = isEnglish ? data.title_en : data.title_fa;
   const about = isEnglish ? data.about_en : data.about_fa;
-  const buttonText = isEnglish ? data.button_en : data.button_fa;
 
   return (
     <section className="w-full">
@@ -17,9 +16,6 @@ const MainSection: React.FC<MainSectionProps> = ({ lang }) => {
         <div className="max-w-3xl max-md:order-2">
           <p className="mb-7 text-3xl font-bold">{title}</p>
           <p className="mb-7 text-gray-600">{about}</p>
-          <button className="w-34 rounded-xl bg-blue-800 p-2 text-white">
-            {buttonText}
-          </button>
         </div>
 
         <div className="relative w-md max-md:order-1 max-md:w-xs">

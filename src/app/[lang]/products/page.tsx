@@ -1,6 +1,6 @@
 import React from "react";
-import { MOCK_PRODUCTS as data } from "@/Data";
 import ProductCard from "@/components/products/ProductCard";
+import { getProducts } from "@/app/actions/getProducts";
 const sortOptions = [
   { id: "title-asc", label: { en: "Title (A→Z)", fa: "عنوان (الف تا ی)" } },
   { id: "title-desc", label: { en: "Title (Z→A)", fa: "عنوان (ی تا الف)" } },
@@ -36,6 +36,7 @@ const countries = [
 const page = async ({ params }: { params: { lang: string } }) => {
   const { lang } = await params;
   const isEnglish = lang === "en";
+  const data = await getProducts();
 
   return (
     <main dir={isEnglish ? "ltr" : "rtl"}>

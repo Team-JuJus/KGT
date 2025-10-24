@@ -1,12 +1,16 @@
 import Image from "next/image";
 
-import { MAIN_SECTION as data } from "@/Data";
 import clsx from "clsx";
+import { getMainSectionData } from "@/app/actions/getMainSectionData";
 interface MainSectionProps {
   lang: string;
 }
-const MainSection: React.FC<MainSectionProps> = ({ lang }) => {
+
+const MainSection: React.FC<MainSectionProps> = async ({ lang }) => {
   const isEnglish = lang === "en";
+
+  const data = await getMainSectionData();
+
   const title = isEnglish ? data.title_en : data.title_fa;
   const about = isEnglish ? data.about_en : data.about_fa;
 

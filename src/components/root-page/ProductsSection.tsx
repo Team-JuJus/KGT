@@ -3,16 +3,10 @@ import clsx from "clsx";
 import { RiShareForwardLine } from "react-icons/ri";
 import ProductSwiper from "./ProductSwiper";
 import { Suspense } from "react";
+import { getProducts } from "@/app/actions/getProducts";
 
 interface ProductsSectionProps {
   lang: string;
-}
-
-async function getProducts() {
-  const url = new URL("/mock/products.json", process.env.NEXT_PUBLIC_SITE_URL);
-  const res = await fetch(url.toString());
-  if (!res.ok) throw new Error("Failed to fetch products");
-  return res.json();
 }
 
 export default function ProductsSection({ lang }: ProductsSectionProps) {

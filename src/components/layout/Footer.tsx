@@ -1,14 +1,15 @@
 import Link from "next/link";
-import { NAV_LINKS, MAIN_SECTION } from "@/Data";
+import { NAV_LINKS } from "@/Data";
 import { FiMail, FiPhone, FiSend } from "react-icons/fi";
+import { getMainSectionData } from "@/app/actions/getMainSectionData";
 
 interface FooterProps {
   lang: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ lang }) => {
-  const aboutText =
-    lang === "fa" ? MAIN_SECTION.about_fa : MAIN_SECTION.about_en;
+const Footer: React.FC<FooterProps> = async ({ lang }) => {
+  const aboutData = await getMainSectionData();
+  const aboutText = lang === "fa" ? aboutData.about_fa : aboutData.about_en;
 
   return (
     <footer className="bg-blue-900 py-12 text-white">

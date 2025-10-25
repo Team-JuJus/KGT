@@ -46,8 +46,14 @@ const page = async ({ params }: { params: { lang: string } }) => {
         </h2>
       </div>
 
-      <section aria-labelledby="products-heading" className="flex w-full">
-        <div className="w-60 shrink-0 p-4" aria-hidden={false}>
+      <section
+        aria-labelledby="products-heading"
+        className="relative flex w-full"
+      >
+        <div
+          className="sticky top-0 left-0 h-screen w-60 shrink-0 overflow-y-scroll p-4"
+          aria-hidden={false}
+        >
           <h2 id="products-heading" className="mb-3 text-xl font-semibold">
             {isEnglish ? "Filters" : "فیلترها"}
           </h2>

@@ -40,3 +40,18 @@ export type HomeData = {
     desc_fa: string;
   }[];
 };
+
+export type CategoryRaw = {
+  id: number;
+  title_fa: string;
+  title_en: string;
+  parent_id: number | null;
+};
+
+export type Category = {
+  id: number;
+  title_fa: string;
+  title_en: string;
+  parent_id: number | null;
+  children?: Category[];
+};

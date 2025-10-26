@@ -2,16 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { use, useState } from "react";
 import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import { NAV_LINKS as data } from "@/Data";
 import { usePathname } from "next/navigation";
+import { Category } from "@/types";
+import { buildCategoryTree } from "@/utils/treeFromData";
+import ProductsButton from "./ProductsButton";
 
 interface NavbarProps {
   lang: string;
+  categories: Promise<Category[]>;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ lang }) => {
+const Navbar: React.FC<NavbarProps> = ({ lang, categories }) => {
+  const categoriesData = use(categories);
+  const categoriesTree = buildCategoryTree(categoriesData);
+
   const pathname = usePathname() || "/";
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -43,13 +50,18 @@ const Navbar: React.FC<NavbarProps> = ({ lang }) => {
 
         <nav className="hidden md:flex md:items-center md:gap-6">
           {data.map((item) => (
-            <Link
+            <div
               key={item.name_en}
-              href={`/${lang}/${item.link}`}
               className={`px-2 py-1 text-sm hover:underline ${isActive(item.link) ? "font-bold text-blue-600" : "text-gray-700"}`}
             >
-              {lang === "fa" ? item.name_fa : item.name_en}
-            </Link>
+              {item.name_en === "Products" ? (
+                <ProductsButton lang={lang} categoriesTree={categoriesTree} />
+              ) : (
+                <Link href={`/${lang}/${item.link}`}>
+                  {lang === "fa" ? item.name_fa : item.name_en}
+                </Link>
+              )}
+            </div>
           ))}
         </nav>
 

@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "title_fa": "الکترونیک",
+    "title_en": "Electronics",
+    "parent_id": null
+  },
+  {
+    "id": 2,
+    "title_fa": "موبایل و تبلت",
+    "title_en": "Mobiles & Tablets",
+    "parent_id": 1
+  },
+  {
+    "id": 3,
+    "title_fa": "گوشی هوشمند",
+    "title_en": "Smartphones",
+    "parent_id": 2
+  },
+  {
+    "id": 4,
+    "title_fa": "تبلت",
+    "title_en": "Tablets",
+    "parent_id": 2
+  },
+  {
+    "id": 5,
+    "title_fa": "لپ‌تاپ و کامپیوتر",
+    "title_en": "Laptops & Computers",
+    "parent_id": 1
+  },
+  {
+    "id": 6,
+    "title_fa": "لپ‌تاپ",
+    "title_en": "Laptops",
+    "parent_id": 5
+  },
+  {
+    "id": 7,
+    "title_fa": "کامپیوتر رومیزی",
+    "title_en": "Desktop Computers",
+    "parent_id": 5
+  },
+  {
+    "id": 8,
+    "title_fa": "پوشاک",
+    "title_en": "Clothing",
+    "parent_id": null
+  },
+  {
+    "id": 9,
+    "title_fa": "مردانه",
+    "title_en": "Men's",
+    "parent_id": 8
+  },
+  {
+    "id": 10,
+    "title_fa": "تی‌شرت",
+    "title_en": "T-Shirts",
+    "parent_id": 9
+  },
+  {
+    "id": 11,
+    "title_fa": "شلوار",
+    "title_en": "Pants",
+    "parent_id": 9
+  },
+  {
+    "id": 12,
+    "title_fa": "زنانه",
+    "title_en": "Women's",
+    "parent_id": 8
+  },
+  {
+    "id": 13,
+    "title_fa": "لباس",
+    "title_en": "Dresses",
+    "parent_id": 12
+  },
+  {
+    "id": 14,
+    "title_fa": "کفش",
+    "title_en": "Shoes",
+    "parent_id": 12
+  },
+  {
+    "id": 15,
+    "title_fa": "کتاب و رسانه",
+    "title_en": "Books & Media",
+    "parent_id": null
+  },
+  {
+    "id": 16,
+    "title_fa": "کتاب‌های چاپی",
+    "title_en": "Printed Books",
+    "parent_id": 15
+  },
+  {
+    "id": 17,
+    "title_fa": "رمان",
+    "title_en": "Novels",
+    "parent_id": 16
+  },
+  {
+    "id": 18,
+    "title_fa": "علمی",
+    "title_en": "Science",
+    "parent_id": 16
+  },
+  {
+    "id": 19,
+    "title_fa": "فیلم و موسیقی",
+    "title_en": "Movies & Music",
+    "parent_id": 15
+  }
+]

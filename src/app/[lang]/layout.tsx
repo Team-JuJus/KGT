@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import LayoutProps from "next";
 
 import "@/globals.css";
+import { getCategories } from "../actions/getCategories";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -33,6 +34,8 @@ export default async function LangLayout({
   const { lang } = await params;
   const dir = lang === "fa" ? "rtl" : "ltr";
 
+  const categories = getCategories();
+
   return (
     <html
       lang={lang}
@@ -40,7 +43,7 @@ export default async function LangLayout({
       className={lang == "en" ? roboto.className : yekan.className}
     >
       <body>
-        <Header lang={lang} />
+        <Header lang={lang} categories={categories} />
         {children}
         <Footer lang={lang} />
       </body>

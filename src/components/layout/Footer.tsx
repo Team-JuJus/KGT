@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { NAV_LINKS } from "@/Data";
 import { FiMail, FiPhone, FiSend } from "react-icons/fi";
-import { getMainSectionData } from "@/app/fetchers/getMainSectionData";
+import { getMainSectionData } from "@/app/actions/getMainSectionData";
 
 interface FooterProps {
   lang: string;

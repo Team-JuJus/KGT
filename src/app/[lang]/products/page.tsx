@@ -1,6 +1,6 @@
 import React from "react";
 import ProductCard from "@/components/products/ProductCard";
-import { getProducts } from "@/app/fetchers/getProducts";
+import { getProducts } from "@/app/actions/getProducts";
 const sortOptions = [
   { id: "title-asc", label: { en: "Title (A→Z)", fa: "عنوان (الف تا ی)" } },
   { id: "title-desc", label: { en: "Title (Z→A)", fa: "عنوان (ی تا الف)" } },
@@ -32,8 +32,6 @@ const countries = [
   { en: "China", fa: "چین" },
   { en: "United Kingdom", fa: "بریتانیا" },
 ];
-
-export const dynamic = "force-static";
 
 const page = async ({ params }: { params: { lang: string } }) => {
   const { lang } = await params;

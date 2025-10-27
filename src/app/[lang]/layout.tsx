@@ -25,18 +25,16 @@ const yekan = localFont({
   display: "swap",
 });
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "fa" }];
-}
-
 export default async function LangLayout({
   children,
   params,
 }: LayoutProps<"/[lang]">) {
   const { lang } = await params;
   const dir = getDirection(lang);
+
+  if (lang !== "en" && lang !== "fa") {
+    throw new Error("Invalid language");
+  }
 
   return (
     <html
@@ -58,3 +56,5 @@ export default async function LangLayout({
     </html>
   );
 }
+
+export const dynamic = "force-static";

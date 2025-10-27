@@ -4,7 +4,7 @@ import Link from "next/link";
 import ArticleCard from "../articles/ArticleCard";
 import clsx from "clsx";
 import { formatDate } from "@/utils/date";
-import { getArticles } from "@/app/fetchers/getArticles";
+import { getArticles } from "@/app/actions/getArticles";
 
 interface ArticleSectionProps {
   lang: string;

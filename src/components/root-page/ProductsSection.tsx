@@ -2,7 +2,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { RiShareForwardLine } from "react-icons/ri";
 import ProductSwiper from "./ProductSwiper";
-import { getProducts } from "@/app/fetchers/getProducts";
+import { getProducts } from "@/app/actions/getProducts";
 
 interface ProductsSectionProps {
   lang: string;

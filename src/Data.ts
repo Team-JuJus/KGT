@@ -37,7 +37,7 @@ export const MOCK_CATEGORIES = [
 export const MOCK_COMPANIES = [{ title: "Zeiss", logo: "/zeiss.jpg" }];
 
 export const NAV_LINKS = [
-  { name_fa: "خانه", name_en: "Home", link: "/" },
+  { name_fa: "خانه", name_en: "Home", link: "" },
   { name_fa: "محصولات", name_en: "Products", link: "products" },
   { name_fa: "مقالات", name_en: "Articles", link: "articles" },
   { name_fa: "درباره ما", name_en: "About us", link: "about" },

@@ -1,21 +1,29 @@
 "use client";
 
-import { Category } from "@/types";
+import { CategoryRaw } from "@/types";
+import { getDirection } from "@/utils/getDirection";
+import { buildCategoryTree } from "@/utils/treeFromData";
 import clsx from "clsx";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 
 interface ProductsButtonProps {
   lang: string;
-  categoriesTree: Category[];
+  categories: Promise<CategoryRaw[]>;
+  isActive: boolean;
 }
 
 const ProductsButton: React.FC<ProductsButtonProps> = ({
   lang,
-  categoriesTree,
+  categories,
+  isActive,
 }) => {
-  const isRtl = lang === "fa";
+  const categoriesData = use(categories);
+  const categoriesTree = buildCategoryTree(categoriesData);
+
+  const dir = getDirection(lang);
+  const isRtl = dir === "rtl";
 
   // State for main dropdown and nested submenus (by category id)
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +64,7 @@ const ProductsButton: React.FC<ProductsButtonProps> = ({
   const mainDropdownPosition = isRtl
     ? "right-0 origin-top-right"
     : "left-0 origin-top-left";
+
   const nestedPosition = () =>
     isRtl ? "right-full origin-top-right " : "left-full origin-top-left ";
 
@@ -65,23 +74,27 @@ const ProductsButton: React.FC<ProductsButtonProps> = ({
     "absolute top-0 z-50 mt-0 w-48 bg-white shadow-lg rounded-md ring-1 ring-gray-200 transition-all duration-200 ease-out";
 
   return (
-    <div ref={wrapperRef} className="relative inline-block">
+    <div ref={wrapperRef} className="relative">
       <button
         aria-haspopup="menu"
         aria-expanded={isOpen}
         onClick={() => setIsOpen((s) => !s)}
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        className="flex items-center gap-1 rounded px-3 py-2 hover:underline"
+        className="flex items-center gap-1 rounded px-3 py-2"
       >
         <Link href={`/${lang}/products`} className="flex items-center gap-1">
-          <span className="pointer-events-none font-medium select-none">
+          <p
+            className={clsx(
+              "pointer-events-none transition-all select-none",
+              isActive && "font-bold text-blue-800",
+            )}
+          >
             {isRtl ? "محصولات" : "Products"}
-          </span>
+          </p>
           <FaChevronRight
             className={clsx(
               "text-xs transition-transform duration-200",
-              // rotate chevron depending on open state and rtl
               isOpen
                 ? isRtl
                   ? "-rotate-90"
@@ -102,7 +115,6 @@ const ProductsButton: React.FC<ProductsButtonProps> = ({
         className={clsx(
           dropdownBase,
           mainDropdownPosition,
-          // animated visibility instead of `hidden` so transitions work
           isOpen
             ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
             : "pointer-events-none -translate-y-1 scale-95 opacity-0",
@@ -110,7 +122,7 @@ const ProductsButton: React.FC<ProductsButtonProps> = ({
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
       >
-        <div className="max-h-64">
+        <div>
           {categoriesTree.map((mainCat) => {
             const hasChildren = (mainCat.children?.length ?? 0) > 0;
             const isSubOpen = !!openSubmenus[mainCat.id];

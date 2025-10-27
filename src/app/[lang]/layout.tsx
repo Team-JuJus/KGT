@@ -25,6 +25,12 @@ const yekan = localFont({
   display: "swap",
 });
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "fa" }];
+}
+
 export default async function LangLayout({
   children,
   params,

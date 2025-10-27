@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import clsx from "clsx";
-import { getMainSectionData } from "@/app/actions/getMainSectionData";
+import { getMainSectionData } from "@/app/fetchers/getMainSectionData";
 interface MainSectionProps {
   lang: string;
 }

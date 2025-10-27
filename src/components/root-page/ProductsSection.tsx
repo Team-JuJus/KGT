@@ -2,17 +2,16 @@ import Link from "next/link";
 import clsx from "clsx";
 import { RiShareForwardLine } from "react-icons/ri";
 import ProductSwiper from "./ProductSwiper";
-import { Suspense } from "react";
-import { getProducts } from "@/app/actions/getProducts";
+import { getProducts } from "@/app/fetchers/getProducts";
 
 interface ProductsSectionProps {
   lang: string;
 }
 
-export default function ProductsSection({ lang }: ProductsSectionProps) {
+export default async function ProductsSection({ lang }: ProductsSectionProps) {
   const isEnglish = lang === "en";
 
-  const dataPromise = getProducts();
+  const data = await getProducts();
 
   return (
     <section className="bg-blue-50 py-5">
@@ -35,9 +34,7 @@ export default function ProductsSection({ lang }: ProductsSectionProps) {
 
         <hr className="my-3" />
 
-        <Suspense fallback={<div>Loading...</div>}>
-          <ProductSwiper data={dataPromise} isEnglish={isEnglish} />
-        </Suspense>
+        <ProductSwiper products={data} isEnglish={isEnglish} />
       </div>
     </section>
   );

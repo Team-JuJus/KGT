@@ -1,7 +1,6 @@
 "use client";
 
 import { CategoryRaw } from "@/types";
-import React from "react";
 import ProductsButton from "./ProductsButton";
 import Link from "next/link";
 import { NAV_LINKS as data } from "@/Data";

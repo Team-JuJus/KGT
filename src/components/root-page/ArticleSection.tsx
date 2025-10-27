@@ -3,18 +3,11 @@ import Link from "next/link";
 
 import ArticleCard from "../articles/ArticleCard";
 import clsx from "clsx";
-import { Articles } from "@/types";
 import { formatDate } from "@/utils/date";
+import { getArticles } from "@/app/fetchers/getArticles";
 
 interface ArticleSectionProps {
   lang: string;
-}
-
-async function getArticles(): Promise<Articles[]> {
-  const url = new URL("/mock/articles.json", process.env.NEXT_PUBLIC_SITE_URL);
-  const res = await fetch(url.toString());
-  if (!res.ok) throw new Error("Failed to fetch articles");
-  return res.json();
 }
 
 const ArticleSection: React.FC<ArticleSectionProps> = async ({ lang }) => {

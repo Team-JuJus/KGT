@@ -1,19 +1,19 @@
 "use client";
 
-import { use } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import ProductCard from "@/components/products/ProductCard";
 import { Product } from "@/types";
 
 interface ProductSwiperProps {
-  data: Promise<Product[]>;
+  products: Product[];
   isEnglish: boolean;
 }
 
-export default function ProductSwiper({ data, isEnglish }: ProductSwiperProps) {
-  const products = use(data);
-
+export default function ProductSwiper({
+  products,
+  isEnglish,
+}: ProductSwiperProps) {
   return (
     <Swiper
       modules={[Navigation]}

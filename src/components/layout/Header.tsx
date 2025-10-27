@@ -1,4 +1,4 @@
-import { getCategories } from "@/app/actions/getCategories";
+import { getCategories } from "@/app/fetchers/getCategories";
 import SearchBarAndLanguage from "./SearchBar";
 import Navbar from "./Navbar";
 import HeaderLogo from "./HeaderLogo";

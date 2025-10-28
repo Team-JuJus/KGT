@@ -9,7 +9,8 @@ interface PageProps {
 }
 
 const page = async ({ params }: PageProps) => {
-  const isEnglish = params.lang === "en";
+  const { lang } = await params;
+  const isEnglish = lang === "en";
   const articles = await getArticles();
   return (
     <main>

@@ -1,5 +1,4 @@
 import { getCategories } from "@/app/actions/getCategories";
-import SearchBarAndLanguage from "./SearchBar";
 import Navbar from "./Navbar";
 import HeaderLogo from "./HeaderLogo";
 
@@ -15,7 +14,6 @@ const Header: React.FC<HeaderProps> = ({ lang }) => {
       <div className="flex items-center justify-between py-5">
         <HeaderLogo />
         <Navbar lang={lang} categories={categories} />
-        <SearchBarAndLanguage lang={lang} />
       </div>
     </header>
   );

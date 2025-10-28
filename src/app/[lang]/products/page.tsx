@@ -39,7 +39,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
   const data = await getProducts();
 
   return (
-    <main dir={isEnglish ? "ltr" : "rtl"}>
+    <main>
       <div className="flex items-center justify-center bg-blue-900 p-2 text-white">
         <h2 className="text-3xl font-bold">
           {isEnglish ? "Products" : "محصولات"}

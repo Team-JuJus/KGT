@@ -1,7 +1,8 @@
 import Image from "next/image";
 
-const page = ({ params }: { params: { lang: string } }) => {
-  const isEnglish = params.lang === "en";
+const page = async ({ params }: { params: { lang: string } }) => {
+  const { lang } = await params;
+  const isEnglish = lang === "en";
   return (
     <main>
       <div className="mb-20 flex items-center justify-center bg-blue-900 p-2 text-white">
@@ -9,7 +10,7 @@ const page = ({ params }: { params: { lang: string } }) => {
           {isEnglish ? "About Us" : "درباره ما"}
         </h2>
       </div>
-      <section className="mx-auto flex max-w-5xl items-center justify-between">
+      <section className="mx-auto flex max-w-5xl items-center justify-center gap-20 max-md:scale-80 max-md:flex-col">
         <div className="relative h-[448px] w-[420px]">
           <Image
             src={"/a1.png"}

@@ -19,7 +19,7 @@ const page = async ({ params }: PageProps) => {
           {isEnglish ? "Articles" : "مقالات"}
         </h2>
       </div>
-      <section className="mx-auto flex max-w-7xl justify-center gap-5">
+      <section className="mx-auto flex max-w-7xl items-center justify-center gap-5 max-md:flex-col">
         {articles.map((item, index) => {
           const date = new Date(item.time);
           const { formatted, formattedFa } = formatDate(date);

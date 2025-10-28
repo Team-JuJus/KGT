@@ -51,7 +51,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
         className="relative flex w-full"
       >
         <div
-          className="sticky top-0 left-0 h-screen w-60 shrink-0 overflow-y-scroll p-4"
+          className="sticky top-0 left-0 h-screen w-60 shrink-0 overflow-y-scroll p-4 max-md:hidden"
           aria-hidden={false}
         >
           <h2 id="products-heading" className="mb-3 text-xl font-semibold">

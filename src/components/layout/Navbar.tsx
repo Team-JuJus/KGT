@@ -9,6 +9,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BiMenu } from "react-icons/bi";
+import SearchAndLanguage from "./SearchBar";
 
 interface NavbarProps {
   lang: string;
@@ -125,13 +126,17 @@ const MobileNav: React.FC<
         isOpen ? "left-0" : "left-full",
       )}
     >
-      <Image
-        src="/logo.svg"
-        alt="Logo"
-        width={100}
-        height={100}
-        className="w-44"
-      />
+      <div className="flex flex-col items-center gap-10">
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          width={100}
+          height={100}
+          className="w-44"
+        />
+        <SearchAndLanguage lang={lang} />
+      </div>
+
       <div>
         {data.map((item) => (
           <div

@@ -32,7 +32,7 @@ const SearchAndLanguage: React.FC<SearchAndLanguageProps> = ({ lang }) => {
     <div className="flex items-center gap-3">
       <form
         onSubmit={onSubmitSearch}
-        className="hidden items-center rounded-full border border-gray-300 px-3 py-1 md:flex"
+        className="items-center rounded-full border border-gray-300 px-3 py-1 md:flex"
       >
         <input
           aria-label={lang === "fa" ? "جستجو" : "Search"}

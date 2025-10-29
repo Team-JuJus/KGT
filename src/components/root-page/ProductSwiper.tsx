@@ -6,7 +6,7 @@ import ProductCard from "@/components/products/ProductCard";
 import { Product } from "@/types";
 
 interface ProductSwiperProps {
-  products: Product[];
+  products: Product["data"];
   isEnglish: boolean;
 }
 
@@ -27,10 +27,10 @@ export default function ProductSwiper({
         1024: { slidesPerView: 3, centeredSlides: false },
         1280: { slidesPerView: 4, centeredSlides: false },
       }}
-      className="!p-5"
+      className="p-5!"
     >
       {products.map((item, index) => (
-        <SwiperSlide key={index} className="!flex !justify-center">
+        <SwiperSlide key={index} className="flex! justify-center!">
           <ProductCard
             title={isEnglish ? item.title_en : item.title_fa}
             link={item.link}

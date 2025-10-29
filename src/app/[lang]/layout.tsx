@@ -56,5 +56,3 @@ export default async function LangLayout({
     </html>
   );
 }
-
-export const dynamic = "force-static";

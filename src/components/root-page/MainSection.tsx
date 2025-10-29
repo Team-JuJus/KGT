@@ -55,7 +55,7 @@ const MainSection: React.FC<MainSectionProps> = async ({ lang }) => {
         </div>
       </div>
 
-      <ul className="mx-auto flex w-full max-w-7xl justify-around gap-5 rounded-4xl p-2 max-md:flex-col md:border-1 md:border-gray-200">
+      <ul className="mx-auto flex w-full max-w-7xl justify-around gap-5 rounded-4xl p-2 max-md:flex-col md:border md:border-gray-200">
         {data.bonuses.map((bonus, index) => (
           <li key={index} className="flex items-center gap-2">
             <Image

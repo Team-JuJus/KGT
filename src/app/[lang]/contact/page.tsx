@@ -8,6 +8,8 @@ import {
   FaTelegram,
 } from "react-icons/fa6";
 
+export const dynamic = "force-static";
+
 const page = async ({ params }: { params: { lang: string } }) => {
   const { lang } = await params;
   const isEnglish = lang === "en";

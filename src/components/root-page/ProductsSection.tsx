@@ -11,7 +11,7 @@ interface ProductsSectionProps {
 export default async function ProductsSection({ lang }: ProductsSectionProps) {
   const isEnglish = lang === "en";
 
-  const data = await getProducts();
+  const { data } = await getProducts(1);
 
   return (
     <section className="bg-blue-50 py-5">
@@ -25,7 +25,7 @@ export default async function ProductsSection({ lang }: ProductsSectionProps) {
             href={`/${lang}/products`}
             className="flex items-center text-blue-900"
           >
-            {isEnglish ? "All products" : "همه محصولات"}{" "}
+            {isEnglish ? "All products" : "همه محصولات"}
             <RiShareForwardLine
               className={clsx(!isEnglish && "-scale-x-100")}
             />

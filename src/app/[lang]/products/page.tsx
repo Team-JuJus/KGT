@@ -1,6 +1,7 @@
 import React from "react";
 import ProductCard from "@/components/products/ProductCard";
 import { getProducts } from "@/app/actions/getProducts";
+import Pagination from "@/components/layout/Pagination";
 const sortOptions = [
   { id: "title-asc", label: { en: "Title (A→Z)", fa: "عنوان (الف تا ی)" } },
   { id: "title-desc", label: { en: "Title (Z→A)", fa: "عنوان (ی تا الف)" } },
@@ -33,10 +34,22 @@ const countries = [
   { en: "United Kingdom", fa: "بریتانیا" },
 ];
 
-const page = async ({ params }: { params: { lang: string } }) => {
+const page = async ({
+  params,
+  searchParams,
+}: {
+  params: { lang: string };
+  searchParams: { page: string };
+}) => {
   const { lang } = await params;
   const isEnglish = lang === "en";
-  const data = await getProducts();
+
+  const { page } = await searchParams;
+
+  const data = await getProducts(Number(page));
+
+  const products = data.data;
+  const totalPages = data.totalPages;
 
   return (
     <main>
@@ -137,7 +150,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-5 p-5">
-          {data.map((item, index) => (
+          {products.map((item, index) => (
             <ProductCard
               key={index}
               title={isEnglish ? item.title_en : item.title_fa}
@@ -151,6 +164,11 @@ const page = async ({ params }: { params: { lang: string } }) => {
               category={isEnglish ? item.category_en : item.category_fa}
             />
           ))}
+          <Pagination
+            currentPage={Number(page || 1)}
+            lang={lang}
+            totalPages={totalPages}
+          />
         </div>
       </section>
     </main>

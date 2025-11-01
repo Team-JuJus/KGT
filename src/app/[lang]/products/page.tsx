@@ -49,6 +49,7 @@ const page = async ({
   const data = await getProducts(Number(page));
 
   const products = data.data;
+
   const totalPages = data.totalPages;
 
   return (
@@ -150,18 +151,22 @@ const page = async ({
         </div>
 
         <div className="flex flex-wrap justify-center gap-5 p-5">
-          {products.map((item, index) => (
+          {products.map((item) => (
             <ProductCard
-              key={index}
-              title={isEnglish ? item.title_en : item.title_fa}
-              link={item.link}
-              image={item.image}
-              alt={item.alt}
+              key={item.id}
+              title={isEnglish ? item.name_en : item.name_fa}
+              link={item.image_url}
+              image={item.image_url}
+              alt={item.name_en}
               desc={isEnglish ? item.summary_en : item.summary_fa}
               isEnglish={isEnglish}
               country={isEnglish ? item.country_en : item.country_fa}
               company={item.company}
-              category={isEnglish ? item.category_en : item.category_fa}
+              category={
+                isEnglish
+                  ? item.category_id["name_en"]
+                  : item.category_id["name_fa"]
+              }
             />
           ))}
           <Pagination

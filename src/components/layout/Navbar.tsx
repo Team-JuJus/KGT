@@ -92,7 +92,10 @@ const MobileNav: React.FC<NavbarProps> = ({ lang }) => {
 
   return (
     <>
-      <CgMenu className="text-4xl text-blue-800" onClick={toggleMenu} />
+      <CgMenu
+        className="text-4xl text-blue-800 md:hidden"
+        onClick={toggleMenu}
+      />
       <div
         className={`fixed top-0 left-0 z-20 flex h-screen w-screen flex-col items-center justify-between gap-6 bg-white p-5 transition-transform md:hidden ${isOpen ? "" : "translate-x-full"}`}
       >

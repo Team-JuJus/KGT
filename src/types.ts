@@ -1,17 +1,17 @@
 export type Product = {
   data: {
-    title_en: string;
-    title_fa: string;
+    id: string;
+    name_en: string;
+    name_fa: string;
     summary_en: string;
     summary_fa: string;
     link: string;
-    image: string;
+    image_url: string;
     alt: string;
     country_en: string;
     country_fa: string;
     company: string;
-    category_en: string;
-    category_fa: string;
+    category_id: { name_en: string; name_fa: string };
   }[];
   totalPages: number;
 };

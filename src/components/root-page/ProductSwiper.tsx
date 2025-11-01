@@ -32,15 +32,19 @@ export default function ProductSwiper({
       {products.map((item, index) => (
         <SwiperSlide key={index} className="flex! justify-center!">
           <ProductCard
-            title={isEnglish ? item.title_en : item.title_fa}
-            link={item.link}
-            image={item.image}
-            alt={item.alt}
+            title={isEnglish ? item.name_en : item.name_fa}
+            link={item.image_url}
+            image={item.image_url}
+            alt="Product image"
             desc={isEnglish ? item.summary_en : item.summary_fa}
             isEnglish={isEnglish}
             country={isEnglish ? item.country_en : item.country_fa}
             company={item.company}
-            category={isEnglish ? item.category_en : item.category_fa}
+            category={
+              isEnglish
+                ? item.category_id["name_en"]
+                : item.category_id["name_fa"]
+            }
           />
         </SwiperSlide>
       ))}

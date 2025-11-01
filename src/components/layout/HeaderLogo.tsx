@@ -10,7 +10,7 @@ const HeaderLogo = () => {
         width={100}
         height={100}
         alt="logo"
-        className="w-40 max-md:w-32"
+        className="w-40 max-md:w-40"
       />
     </Link>
   );

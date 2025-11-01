@@ -7,9 +7,9 @@ import { NAV_LINKS as data } from "@/Data";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { BiMenu } from "react-icons/bi";
+import { useState } from "react";
 import SearchAndLanguage from "./SearchBar";
+import { CgMenu } from "react-icons/cg";
 
 interface NavbarProps {
   lang: string;
@@ -17,43 +17,10 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ lang, categories }) => {
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    console.log("hello");
-  };
-
-  useEffect(() => {
-    // This runs only in the browser
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize(); // run once on mount
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  if (isMobile === null) return null;
-
   return (
     <>
-      <div className="text-3xl md:hidden" onClick={toggleMenu}>
-        <BiMenu />
-      </div>
-      {isMobile ? (
-        <MobileNav
-          lang={lang}
-          categories={categories}
-          toggle={toggleMenu}
-          isOpen={isOpen}
-        />
-      ) : (
-        <DesktopNav lang={lang} categories={categories} />
-      )}
+      <MobileNav lang={lang} categories={categories} />
+      <DesktopNav lang={lang} categories={categories} />
     </>
   );
 };
@@ -74,7 +41,7 @@ const DesktopNav: React.FC<NavbarProps> = ({ lang, categories }) => {
   };
 
   return (
-    <nav className="flex items-center gap-6">
+    <nav className="flex items-center gap-6 max-md:hidden">
       {data.map((item) => (
         <div
           key={item.name_en}
@@ -104,10 +71,14 @@ const DesktopNav: React.FC<NavbarProps> = ({ lang, categories }) => {
   );
 };
 
-const MobileNav: React.FC<
-  NavbarProps & { toggle: () => void; isOpen: boolean }
-> = ({ lang, toggle, isOpen }) => {
+const MobileNav: React.FC<NavbarProps> = ({ lang }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   const isActive = (link: string) => {
     const pathNames = pathName.split("/");
     if (pathNames[2] === link) {
@@ -120,43 +91,44 @@ const MobileNav: React.FC<
   };
 
   return (
-    <nav
-      className={clsx(
-        "fixed top-0 z-20 flex h-screen w-screen flex-col items-center justify-between gap-6 bg-white p-5 transition-all",
-        isOpen ? "left-0" : "left-full",
-      )}
-    >
-      <div className="flex flex-col items-center gap-10">
-        <Image
-          src="/logo.svg"
-          alt="Logo"
-          width={100}
-          height={100}
-          className="w-44"
-        />
-        <SearchAndLanguage lang={lang} />
-      </div>
+    <>
+      <CgMenu className="text-4xl text-blue-800" onClick={toggleMenu} />
+      <div
+        className={`fixed top-0 left-0 z-20 flex h-screen w-screen flex-col items-center justify-between gap-6 bg-white p-5 transition-transform md:hidden ${isOpen ? "" : "translate-x-full"}`}
+      >
+        <div className="flex flex-col items-center gap-10">
+          <Image
+            src="/logo.svg"
+            alt="Logo"
+            width={100}
+            height={100}
+            className="w-40"
+          />
+          <SearchAndLanguage lang={lang} />
+        </div>
 
-      <div>
-        {data.map((item) => (
-          <div
-            key={item.name_en}
-            className={"py-2 text-center text-2xl hover:text-blue-500"}
-          >
-            <Link href={`/${lang}/${item.link}`} onClick={toggle}>
-              <p
-                className={clsx(
-                  "p-2 transition-all",
-                  isActive(item.link) && "font-bold text-blue-800",
-                )}
-              >
-                {lang === "fa" ? item.name_fa : item.name_en}
-              </p>
-            </Link>
-          </div>
-        ))}
+        <div>
+          {data.map((item) => (
+            <div
+              key={item.name_en}
+              className={"py-2 text-center text-2xl hover:text-blue-500"}
+            >
+              <Link href={`/${lang}/${item.link}`}>
+                <p
+                  onClick={toggleMenu}
+                  className={clsx(
+                    "p-2 transition-all",
+                    isActive(item.link) && "font-bold text-blue-800",
+                  )}
+                >
+                  {lang === "fa" ? item.name_fa : item.name_en}
+                </p>
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div></div>
       </div>
-      <div></div>
-    </nav>
+    </>
   );
 };

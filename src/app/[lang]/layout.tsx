@@ -32,10 +32,6 @@ export default async function LangLayout({
   const { lang } = await params;
   const dir = getDirection(lang);
 
-  if (lang !== "en" && lang !== "fa") {
-    throw new Error("Invalid language");
-  }
-
   return (
     <html
       lang={lang}

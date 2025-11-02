@@ -6,7 +6,7 @@ import ProductCard from "@/components/products/ProductCard";
 import { Product } from "@/types";
 
 interface ProductSwiperProps {
-  products: Product["data"];
+  products: Product[];
   isEnglish: boolean;
 }
 

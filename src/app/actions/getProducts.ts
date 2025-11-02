@@ -1,20 +1,26 @@
 "use server";
 
 import { Product } from "@/types";
+import { createClient } from "@/utils/supabase/server";
 
-export async function getProducts(page?: number): Promise<Product> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const url = new URL("/api/products", baseUrl);
+export async function getProducts(page: number): Promise<Product[]> {
+  if (!page) page = 1;
 
-  if (page) {
-    url.searchParams.set("page", page.toString());
+  const supabase = await createClient();
+
+  const limit = 20;
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+
+  const fetched = await supabase.from("products").select("*").range(from, to);
+  const products = fetched.data as Product[];
+
+  if (fetched.error) {
+    console.error(fetched.error);
+    throw new Error("Failed to fetch products");
   }
 
-  const res = await fetch(url.toString(), { cache: "no-store" });
+  console.log(products);
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch products in action");
-  }
-
-  return res.json();
+  return products ?? [];
 }

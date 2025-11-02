@@ -1,10 +1,15 @@
 "use server";
 
 import { HomeData } from "@/types";
+import { createClient } from "@/utils/supabase/server";
 
 export async function getMainSectionData(): Promise<HomeData> {
-  const url = new URL("/mock/home.json", process.env.NEXT_PUBLIC_SITE_URL);
-  const res = await fetch(url.toString());
-  if (!res.ok) throw new Error("Failed to fetch main section data");
-  return res.json();
+  const supabase = await createClient();
+  const data = (await supabase
+    .from("settings")
+    .select("*")
+    .eq("title", "home")) as { data: { data: HomeData }[] };
+  const homeSectionData = data.data[0].data as HomeData;
+
+  return homeSectionData;
 }

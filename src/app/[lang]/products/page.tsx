@@ -1,7 +1,6 @@
 import React from "react";
 import ProductCard from "@/components/products/ProductCard";
 import { getProducts } from "@/app/actions/getProducts";
-import Pagination from "@/components/layout/Pagination";
 const sortOptions = [
   { id: "title-asc", label: { en: "Title (A→Z)", fa: "عنوان (الف تا ی)" } },
   { id: "title-desc", label: { en: "Title (Z→A)", fa: "عنوان (ی تا الف)" } },
@@ -46,11 +45,7 @@ const page = async ({
 
   const { page } = await searchParams;
 
-  const data = await getProducts(Number(page));
-
-  const products = data.data;
-
-  const totalPages = data.totalPages;
+  const products = await getProducts(Number(page));
 
   return (
     <main>
@@ -169,11 +164,11 @@ const page = async ({
               }
             />
           ))}
-          <Pagination
+          {/* <Pagination
             currentPage={Number(page || 1)}
             lang={lang}
             totalPages={totalPages}
-          />
+          /> */}
         </div>
       </section>
     </main>

@@ -1,13 +1,17 @@
 "use server";
 
 import { CategoryRaw } from "@/types";
+import { createClient } from "@/utils/supabase/server";
 
 export async function getCategories(): Promise<CategoryRaw[]> {
-  const url = new URL(
-    "/mock/categories.json",
-    process.env.NEXT_PUBLIC_SITE_URL,
-  );
-  const res = await fetch(url.toString());
-  if (!res.ok) throw new Error("Failed to fetch categories");
-  return res.json();
+  const supabase = await createClient();
+  const data = await supabase.from("categories").select("*");
+
+  const categories = data.data as CategoryRaw[];
+
+  if (data.error) {
+    throw new Error(data.error.message);
+  }
+
+  return categories;
 }

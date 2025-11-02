@@ -56,7 +56,7 @@ const ProductsButton: React.FC<ProductsButtonProps> = ({
     };
   }, []);
 
-  const toggleSubmenu = (id: number) => {
+  const toggleSubmenu = (id: string) => {
     setOpenSubmenus((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
@@ -131,11 +131,11 @@ const ProductsButton: React.FC<ProductsButtonProps> = ({
               <li key={mainCat.id} className="group relative">
                 <div className="flex items-center justify-between">
                   <Link
-                    href={`/${lang}/products?cat=${mainCat.id}`}
+                    href={`/${lang}/products?cat=${mainCat.link || ""}`}
                     role="menuitem"
                     className="block flex-1 px-4 py-2 text-sm hover:bg-gray-50 focus:outline-none focus-visible:bg-gray-100"
                   >
-                    {isRtl ? mainCat.title_fa : mainCat.title_en}
+                    {isRtl ? mainCat.name_fa : mainCat.name_en}
                   </Link>
 
                   {hasChildren && (
@@ -204,7 +204,7 @@ const ProductsButton: React.FC<ProductsButtonProps> = ({
                                 role="menuitem"
                                 className="block flex-1 px-4 py-2 text-sm hover:bg-gray-50 focus:outline-none focus-visible:bg-gray-100"
                               >
-                                {isRtl ? subCat.title_fa : subCat.title_en}
+                                {isRtl ? subCat.name_fa : subCat.name_en}
                               </Link>
 
                               {hasChildren2 && (
@@ -280,8 +280,8 @@ const ProductsButton: React.FC<ProductsButtonProps> = ({
                                         className="block px-4 py-2 text-sm hover:bg-gray-50 focus:outline-none focus-visible:bg-gray-100"
                                       >
                                         {isRtl
-                                          ? deepCat.title_fa
-                                          : deepCat.title_en}
+                                          ? deepCat.name_fa
+                                          : deepCat.name_en}
                                       </Link>
                                     </li>
                                   ))}

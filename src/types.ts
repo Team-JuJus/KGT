@@ -45,16 +45,18 @@ export type HomeData = {
 };
 
 export type CategoryRaw = {
-  id: number;
+  id: string;
   title_fa: string;
   title_en: string;
-  parent_id: number | null;
+  link: string;
+  parent_id: string | null;
 };
 
 export type Category = {
-  id: number;
-  title_fa: string;
-  title_en: string;
-  parent_id: number | null;
+  id: string;
+  name_fa: string;
+  name_en: string;
+  parent_id: string | null;
+  link: string;
   children?: Category[];
 };

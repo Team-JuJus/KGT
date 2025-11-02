@@ -7,6 +7,8 @@ interface HomeProps {
   params: { lang: string };
 }
 
+export const dynamic = "force-static";
+
 const Home: React.FC<HomeProps> = async ({ params }) => {
   const { lang } = await params;
   const isEnglish = lang === "en";

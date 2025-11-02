@@ -32,6 +32,8 @@ export async function generateStaticParams() {
   }));
 }
 
+export const dynamic = "force-static";
+
 export default async function LangLayout({
   children,
   params,

@@ -20,7 +20,5 @@ export async function getProducts(page: number): Promise<Product[]> {
     throw new Error("Failed to fetch products");
   }
 
-  console.log(products);
-
   return products ?? [];
 }

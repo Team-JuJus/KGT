@@ -33,6 +33,8 @@ const countries = [
   { en: "United Kingdom", fa: "بریتانیا" },
 ];
 
+export const dynamic = "force-dynamic";
+
 const page = async ({
   params,
   searchParams,

@@ -19,7 +19,6 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
   color,
   isEnglish,
 }) => {
-  console.log(color);
   return (
     <Link href={link}>
       <article

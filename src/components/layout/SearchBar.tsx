@@ -24,7 +24,6 @@ const SearchAndLanguage: React.FC<SearchAndLanguageProps> = ({ lang }) => {
 
   const onSubmitSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Search for:", query);
     setQuery("");
   };
 

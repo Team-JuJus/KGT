@@ -1,5 +1,7 @@
+"use client";
+
 import { CategoryRaw, Company } from "@/types";
-import React, { use } from "react";
+import { use } from "react";
 
 const sortOptions = [
   { id: "title-asc", label: { en: "Title (A→Z)", fa: "عنوان (الف تا ی)" } },
@@ -21,7 +23,6 @@ const FilterSort: React.FC<FilterSortProps> = ({
 }) => {
   const allCategories = use(categories);
   const allCompanies = use(companies);
-  console.log(allCategories);
 
   return (
     <div

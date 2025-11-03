@@ -43,8 +43,8 @@ export type HomeData = {
 
 export type CategoryRaw = {
   id: string;
-  title_fa: string;
-  title_en: string;
+  name_fa: string;
+  name_en: string;
   link: string;
   parent_id: string | null;
 };
@@ -56,4 +56,14 @@ export type Category = {
   parent_id: string | null;
   link: string;
   children?: Category[];
+};
+
+export type Company = {
+  id: string;
+  name_en: string;
+  name_fa: string;
+  link: string;
+  desc: string;
+  country_en: string;
+  country_fa: string;
 };

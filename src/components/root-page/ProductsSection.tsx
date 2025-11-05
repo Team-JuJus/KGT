@@ -11,7 +11,7 @@ interface ProductsSectionProps {
 export default async function ProductsSection({ lang }: ProductsSectionProps) {
   const isEnglish = lang === "en";
 
-  const data = await getProducts(1);
+  const data = await getProducts({});
 
   return (
     <section className="bg-blue-50 py-5">

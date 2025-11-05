@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   company,
 }) => {
   return (
-    <article className="relative h-96 w-72 overflow-hidden rounded-2xl bg-white p-3 shadow-lg">
+    <article className="relative h-96 w-72 overflow-hidden rounded-2xl bg-white p-3 shadow-lg transition-transform hover:scale-105">
       <Image
         src="/zeiss.jpg"
         alt={company}

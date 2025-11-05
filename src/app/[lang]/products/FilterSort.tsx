@@ -1,7 +1,9 @@
 "use client";
 
-import { CategoryRaw, Company } from "@/types";
+import { getProducts } from "@/app/actions/getProducts";
+import { CategoryRaw, Company, Product } from "@/types";
 import { use } from "react";
+import { useState, useEffect } from "react";
 
 const sortOptions = [
   { id: "title-asc", label: { en: "Title (A→Z)", fa: "عنوان (الف تا ی)" } },
@@ -14,22 +16,76 @@ interface FilterSortProps {
   categories: Promise<CategoryRaw[]>;
   isEnglish: boolean;
   companies: Promise<Company[]>;
+  setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const FilterSort: React.FC<FilterSortProps> = ({
   isEnglish,
   categories,
   companies,
+  setProducts,
+  setLoading,
 }) => {
   const allCategories = use(categories);
   const allCompanies = use(companies);
 
+  // 🌟 State
+  const [search, setSearch] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
+  const [sort, setSort] = useState("title-asc");
+
+  useEffect(() => {
+    setLoading(true);
+    const fetchProducts = async (pageNum: number) => {
+      try {
+        const categoryFilter = selectedCategories[0] || undefined;
+        const companyFilter = selectedCompanies[0] || undefined;
+        const data = await getProducts({
+          page: pageNum,
+          search,
+          categoryId: categoryFilter,
+          company: companyFilter,
+        });
+
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const timeout = setTimeout(() => {
+      fetchProducts(1);
+    }, 800);
+
+    return () => clearTimeout(timeout);
+  }, [search, selectedCategories, selectedCompanies, setProducts, setLoading]);
+
+  const toggleCategory = (id: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id],
+    );
+  };
+
+  const toggleCompany = (name: string) => {
+    setSelectedCompanies((prev) =>
+      prev.includes(name) ? prev.filter((c) => c !== name) : [...prev, name],
+    );
+  };
+
+  const resetFilters = () => {
+    setSearch("");
+    setSelectedCategories([]);
+    setSelectedCompanies([]);
+    setSort("title-asc");
+  };
+
   return (
-    <div
-      className="sticky top-0 left-0 h-screen w-60 shrink-0 overflow-y-scroll p-4 max-md:hidden"
-      aria-hidden={false}
-    >
-      <h2 id="products-heading" className="mb-3 text-xl font-semibold">
+    <div className="sticky top-0 left-0 h-screen w-60 shrink-0 overflow-y-scroll p-4 max-md:hidden">
+      <h2 className="mb-3 text-xl font-semibold">
         {isEnglish ? "Filters" : "فیلترها"}
       </h2>
 
@@ -41,6 +97,8 @@ const FilterSort: React.FC<FilterSortProps> = ({
         <input
           id="search"
           type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           placeholder={isEnglish ? "Search products" : "جستجوی محصولات"}
           className="w-full rounded-md border p-2"
         />
@@ -53,7 +111,13 @@ const FilterSort: React.FC<FilterSortProps> = ({
         </legend>
         {allCategories.map((c) => (
           <div key={c.name_en} className="flex items-center">
-            <input id={`cat-${c.name_en}`} type="checkbox" className="m-1" />
+            <input
+              id={`cat-${c.name_en}`}
+              type="checkbox"
+              checked={selectedCategories.includes(c.name_en)}
+              onChange={() => toggleCategory(c.name_en)}
+              className="m-1"
+            />
             <label htmlFor={`cat-${c.name_en}`}>
               {isEnglish ? c.name_en : c.name_fa}
             </label>
@@ -68,7 +132,13 @@ const FilterSort: React.FC<FilterSortProps> = ({
         </legend>
         {allCompanies.map((c) => (
           <div key={c.name_en} className="flex items-center">
-            <input id={`comp-${c.name_en}`} type="checkbox" className="m-1" />
+            <input
+              id={`comp-${c.name_en}`}
+              type="checkbox"
+              checked={selectedCompanies.includes(c.name_en)}
+              onChange={() => toggleCompany(c.name_en)}
+              className="m-1"
+            />
             <label htmlFor={`comp-${c.name_en}`}>
               {isEnglish ? c.name_en : c.name_fa}
             </label>
@@ -81,7 +151,12 @@ const FilterSort: React.FC<FilterSortProps> = ({
         <label htmlFor="sort" className="mb-1 block text-sm font-medium">
           {isEnglish ? "Sort" : "مرتب‌سازی"}
         </label>
-        <select id="sort" className="w-full rounded-md border p-2">
+        <select
+          id="sort"
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          className="w-full rounded-md border p-2"
+        >
           {sortOptions.map((s) => (
             <option key={s.id} value={s.id}>
               {isEnglish ? s.label.en : s.label.fa}
@@ -92,7 +167,11 @@ const FilterSort: React.FC<FilterSortProps> = ({
 
       {/* Reset */}
       <div className="flex gap-2">
-        <button type="button" className="rounded-md border px-3 py-2">
+        <button
+          type="button"
+          onClick={resetFilters}
+          className="rounded-md border px-3 py-2"
+        >
           {isEnglish ? "Reset" : "بازنشانی"}
         </button>
       </div>

@@ -2,7 +2,7 @@ import { getCategories } from "@/app/actions/getCategories";
 import { getCompanies } from "@/app/actions/getCompanies";
 import Section from "./Section";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 const page = async ({ params }: { params: { lang: string } }) => {
   const { lang } = await params;

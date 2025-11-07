@@ -41,6 +41,12 @@ export type HomeData = {
   }[];
 };
 
+export type AboutData = {
+  images: string[];
+  text_en: string;
+  text_fa: string;
+};
+
 export type CategoryRaw = {
   id: string;
   name_fa: string;

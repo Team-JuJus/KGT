@@ -1,11 +1,11 @@
 "use client";
 
 import { Suspense, useState } from "react";
-import FilterSort from "./FilterSort";
-import ProductLayout from "./ProductLayout";
-import ProductCardSkeleton from "./productCardSkeleton";
 import { CategoryRaw, Company, Product } from "@/types";
 import FilterSortSkeleton from "./FilterSortSkeleton";
+import FilterSort from "./FilterSort";
+import ProductCardSkeleton from "./productCardSkeleton";
+import ProductLayout from "./ProductLayout";
 
 interface SectionProps {
   companies: Promise<Company[]>;

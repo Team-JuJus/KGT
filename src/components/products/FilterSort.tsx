@@ -5,13 +5,6 @@ import { CategoryRaw, Company, Product } from "@/types";
 import { use } from "react";
 import { useState, useEffect } from "react";
 
-const sortOptions = [
-  { id: "title-asc", label: { en: "Title (A→Z)", fa: "عنوان (الف تا ی)" } },
-  { id: "title-desc", label: { en: "Title (Z→A)", fa: "عنوان (ی تا الف)" } },
-  { id: "company-asc", label: { en: "Company (A→Z)", fa: "شرکت (الف تا ی)" } },
-  { id: "company-desc", label: { en: "Company (Z→A)", fa: "شرکت (ی تا الف)" } },
-];
-
 interface FilterSortProps {
   categories: Promise<CategoryRaw[]>;
   isEnglish: boolean;
@@ -34,7 +27,6 @@ const FilterSort: React.FC<FilterSortProps> = ({
   const [search, setSearch] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
-  const [sort, setSort] = useState("title-asc");
 
   useEffect(() => {
     setLoading(true);
@@ -80,7 +72,6 @@ const FilterSort: React.FC<FilterSortProps> = ({
     setSearch("");
     setSelectedCategories([]);
     setSelectedCompanies([]);
-    setSort("title-asc");
   };
 
   return (
@@ -145,25 +136,6 @@ const FilterSort: React.FC<FilterSortProps> = ({
           </div>
         ))}
       </fieldset>
-
-      {/* Sort */}
-      <div className="mb-4">
-        <label htmlFor="sort" className="mb-1 block text-sm font-medium">
-          {isEnglish ? "Sort" : "مرتب‌سازی"}
-        </label>
-        <select
-          id="sort"
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
-          className="w-full rounded-md border p-2"
-        >
-          {sortOptions.map((s) => (
-            <option key={s.id} value={s.id}>
-              {isEnglish ? s.label.en : s.label.fa}
-            </option>
-          ))}
-        </select>
-      </div>
 
       {/* Reset */}
       <div className="flex gap-2">

@@ -1,6 +1,6 @@
 import { getCategories } from "@/app/actions/getCategories";
 import { getCompanies } from "@/app/actions/getCompanies";
-import Section from "./Section";
+import Section from "../../../components/products/Section";
 
 export const dynamic = "force-static";
 

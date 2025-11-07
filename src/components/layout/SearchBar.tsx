@@ -5,18 +5,16 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 
-interface SearchAndLanguageProps {
-  lang: string;
-}
-
-const SearchAndLanguage: React.FC<SearchAndLanguageProps> = ({ lang }) => {
+const SearchAndLanguage = () => {
   const [query, setQuery] = useState("");
   const router = useRouter();
-  const pathname = usePathname(); // get current path
+  const urlPath = usePathname();
+  const pathNames = urlPath.split("/");
+  const lang = pathNames[1];
 
   const toggleLanguage = () => {
     const newLang = lang === "fa" ? "en" : "fa";
-    const pathWithoutLang = pathname.replace(/^\/(fa|en)/, "");
+    const pathWithoutLang = urlPath.replace(/^\/(fa|en)/, "");
 
     // Push new language-prefixed route
     router.push(`/${newLang}${pathWithoutLang}`);

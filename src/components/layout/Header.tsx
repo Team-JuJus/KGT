@@ -1,22 +1,22 @@
-import { getCategories } from "@/app/actions/getCategories";
-import Navbar from "./Navbar";
 import HeaderLogo from "./HeaderLogo";
 import SearchAndLanguage from "./SearchBar";
 
-interface HeaderProps {
-  lang: string;
-}
+import { getCategories } from "@/app/actions/getCategories";
+import DesktopNav from "./desktop-navbar";
+import MobileNavigation from "./mobile-navbar";
 
-const Header: React.FC<HeaderProps> = ({ lang }) => {
+const Header = () => {
   const categories = getCategories();
 
   return (
     <header className="mx-auto mb-10 max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between py-5">
         <HeaderLogo />
-        <Navbar lang={lang} categories={categories} />
+        <DesktopNav categories={categories} />
+        <MobileNavigation />
+
         <div className="max-md:hidden">
-          <SearchAndLanguage lang={lang} />
+          <SearchAndLanguage />
         </div>
       </div>
     </header>

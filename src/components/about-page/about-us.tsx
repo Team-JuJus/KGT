@@ -1,13 +1,13 @@
-import { AboutData } from "@/types";
+import { getAboutUsData } from "@/app/actions/getAboutUsData";
 import Image from "next/image";
 import React from "react";
 
 interface AboutUsProps {
-  data: AboutData;
   isEnglish: boolean;
 }
 
-const AboutUs: React.FC<AboutUsProps> = ({ isEnglish, data }) => {
+const AboutUs: React.FC<AboutUsProps> = async ({ isEnglish }) => {
+  const data = await getAboutUsData();
   return (
     <section className="mx-auto flex max-w-5xl items-center justify-center gap-20 max-md:scale-80 max-md:flex-col">
       <div className="relative h-[448px] w-[420px]">

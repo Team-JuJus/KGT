@@ -73,3 +73,7 @@ export type Company = {
   country_en: string;
   country_fa: string;
 };
+
+export interface NavbarProps {
+  categories: Promise<CategoryRaw[]>;
+}

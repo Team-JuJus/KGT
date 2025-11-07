@@ -5,12 +5,12 @@ import { getDirection } from "@/utils/getDirection";
 import { buildCategoryTree } from "@/utils/treeFromData";
 import clsx from "clsx";
 import Link from "next/link";
-import React, { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 
 interface ProductsButtonProps {
   lang: string;
-  categories: Promise<CategoryRaw[]>;
+  categories: CategoryRaw[];
   isActive: boolean;
 }
 
@@ -19,8 +19,7 @@ const ProductsButton: React.FC<ProductsButtonProps> = ({
   categories,
   isActive,
 }) => {
-  const categoriesData = use(categories);
-  const categoriesTree = buildCategoryTree(categoriesData);
+  const categoriesTree = buildCategoryTree(categories);
 
   const dir = getDirection(lang);
   const isRtl = dir === "rtl";

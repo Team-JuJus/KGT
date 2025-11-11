@@ -11,6 +11,7 @@ import SearchAndLanguage from "./SearchBar";
 import { CgMenu } from "react-icons/cg";
 
 import { NAV_LINKS } from "@/Data";
+import HeaderLogo from "./HeaderLogo";
 
 const MobileNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,10 +33,11 @@ const MobileNavigation = () => {
 
   return (
     <>
-      <CgMenu
-        className="text-4xl text-blue-800 md:hidden"
-        onClick={toggleMenu}
-      />
+      <nav className="flex items-center justify-between p-5 md:hidden">
+        <HeaderLogo />
+        <CgMenu className="text-4xl text-blue-800" onClick={toggleMenu} />
+      </nav>
+
       <div
         className={`fixed top-0 left-0 z-20 flex h-screen w-screen flex-col items-center justify-between gap-6 bg-white p-5 transition-transform md:hidden ${isOpen ? "" : "translate-x-full"}`}
       >

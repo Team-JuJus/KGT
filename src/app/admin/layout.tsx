@@ -1,15 +1,15 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { yekan, roboto } from "@/utils/fonts";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// ──────────────────────────────────────────────────────────────────────
+// Language classname selector
+// ──────────────────────────────────────────────────────────────────────
+const fontClass = (lang: string) => {
+  if (lang == "en") return roboto.className;
+  else if (lang == "fa") return yekan.className;
+  else return roboto.className;
+};
 
 export default function RootLayout({
   children,
@@ -17,12 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html dir="rtl" lang="fa" className={fontClass("fa")}>
+      <body>{children}</body>
     </html>
   );
 }

@@ -48,7 +48,7 @@ const SearchAndLanguage = () => {
           alt={lang === "fa" ? "Iran Flag" : "England Flag"}
           width={24}
           height={12}
-          className="w-full ring-2"
+          className="w-full ring-2 hover:cursor-pointer"
         />
       </button>
     </div>
